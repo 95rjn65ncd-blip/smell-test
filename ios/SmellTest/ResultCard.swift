@@ -5,6 +5,8 @@ import SmellTestCore
 /// One clean card: verdict, one sentence, reasons, steps 1-2-3. Details sit behind "More".
 struct ResultCard: View {
     let outcome: CheckEngine.Outcome
+    /// The exact text sent off the phone for this check, or nil if nothing was sent.
+    let sentText: String?
     @State private var alreadyActed = false
     @State private var situation: RecoverySituation = .clickedLink
     @State private var showMore = false
@@ -48,7 +50,14 @@ struct ResultCard: View {
                     if result.scamType != .none { Text("Type: \(result.scamType.label)") }
                     Text("Time to verdict: \(outcome.milliseconds) ms")
                     Text("Model: \(outcome.modelVersion)")
-                    Text("Sent off your iPhone: nothing")
+                    if let sentText {
+                        Text("What left your iPhone (exactly):")
+                        Text(sentText).textSelection(.enabled)
+                            .padding(8)
+                            .background(.fill.tertiary, in: .rect(cornerRadius: 8))
+                    } else {
+                        Text("What left your iPhone: nothing")
+                    }
                 }
                 .font(.callout)
                 .foregroundStyle(.secondary)

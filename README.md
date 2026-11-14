@@ -11,8 +11,8 @@
 - [x] Structured verdict (validated JSON), result card, where-it-ran badge, read aloud, "Already clicked?" recovery steps
 - [x] Fixed-pattern redactor with leak tests (`cd Packages/SmellTestCore && swift test`)
 - [ ] Share Extension
-- [ ] Privacy Shield (redaction before anything leaves the phone)
-- [ ] Second opinion when the on-device result is unclear
+- [x] Privacy Shield: fixed patterns + on-device name pass, preview with Send/Cancel, editable, re-checked on Send
+- [x] Second opinion through `HybridModel` on approved text only, with "What left your iPhone" shown exactly
 - [ ] Chrome web version
 - [ ] Benchmark
 
@@ -20,7 +20,9 @@
 
 | What | File |
 |---|---|
-| `HybridModel(primary: device, secondary: cloud)` and `generativeModelSession` | [ios/SmellTest/HelloHybridView.swift](ios/SmellTest/HelloHybridView.swift) |
+| `HybridModel(primary: cloud, secondary: device)` second opinion, on Privacy Shield–approved text only | [ios/SmellTest/CheckEngine.swift](ios/SmellTest/CheckEngine.swift) (`secondOpinion`) |
+| Privacy Shield and the `ApprovedText` gate | [Packages/SmellTestCore/Sources/SmellTestCore/PrivacyShield.swift](Packages/SmellTestCore/Sources/SmellTestCore/PrivacyShield.swift) |
+| Hello-world hybrid smoke test (debug diagnostics) | [ios/SmellTest/HelloHybridView.swift](ios/SmellTest/HelloHybridView.swift) |
 | On-device-only first pass of every check (no cloud path) | [ios/SmellTest/CheckEngine.swift](ios/SmellTest/CheckEngine.swift) |
 | Verdict schema, validation, redactor, escalation rules (no network code) | [Packages/SmellTestCore](Packages/SmellTestCore) |
 | App Check (debug provider / App Attest) | [ios/SmellTest/SmellTestApp.swift](ios/SmellTest/SmellTestApp.swift) |

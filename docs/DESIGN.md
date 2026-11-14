@@ -34,8 +34,10 @@ before anything is sent, and you see exactly what will be sent before it goes.**
    and the user can edit the text.
 4. **Show** exactly what will be sent, with redactions visible. **Send** / **Cancel**.
 5. **Consent.** Nothing is sent without the Send tap.
-6. **Hybrid session on the approved text only.** `HybridModel(primary: device, secondary: cloud)` runs only on
-   the redacted, user-approved text.
+6. **Hybrid session on the approved text only.** `HybridModel(primary: cloud, secondary: device)` runs only on
+   the redacted, user-approved text: cloud first, because a second opinion should come from a different, larger
+   model, with the on-device model as the fallback when offline. The cloud-capable function accepts only an
+   `ApprovedText`, which only `PrivacyShield.approve` can create, so the original text has no way in.
 7. After each check, show "what left your phone": nothing, or the exact redacted text. The original is never logged.
 
 ### Tests

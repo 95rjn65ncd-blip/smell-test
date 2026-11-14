@@ -60,7 +60,7 @@ public enum Redactor {
         // Standalone 4–8 digit numbers (codes, PINs, ZIPs), but not money amounts.
         apply(#"(?<![\w$€£.,])\d{4,8}(?![\w%]|[.,]\d)"#, .code)
         // A name right after a greeting: "Hi Margaret," / "Dear Mr. Lopez".
-        apply(#"\b(Dear|Hi|Hello|Hey)(\s+(?:Mr\.?|Mrs\.?|Ms\.?|Dr\.?)?\s*)[A-Z][a-z'\-]+(?:\s+[A-Z][a-z'\-]+)?"#,
+        apply(#"\b(Dear|Hi|Hello|Hey)(\s+(?:Mr\.?|Mrs\.?|Ms\.?|Dr\.?)?\s*)(?!(?:Mr|Mrs|Ms|Dr)\b)[A-Z][a-z'\-]+(?:\s+[A-Z][a-z'\-]+)?"#,
               options: [], .name, template: "$1$2[NAME]")
 
         return Result(text: text, counts: counts)

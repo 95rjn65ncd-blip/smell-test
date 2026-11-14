@@ -41,6 +41,7 @@ public enum EscalationReason: String, Equatable, Sendable {
     case patternsDisagree
     case tooLongForOnDevice
     case onDeviceUnavailable
+    case onDeviceCouldNotAnswer
 
     public var explanation: String {
         switch self {
@@ -48,6 +49,7 @@ public enum EscalationReason: String, Equatable, Sendable {
         case .patternsDisagree: "Your iPhone found no red flags, but the message has common warning signs."
         case .tooLongForOnDevice: "This message is too long to check on your iPhone."
         case .onDeviceUnavailable: "Your iPhone can't check messages on its own right now."
+        case .onDeviceCouldNotAnswer: "Your iPhone couldn't give a clear answer on this one."
         }
     }
 }

@@ -64,3 +64,14 @@ struct RedactorLeakTests {
         #expect(r.counts[.email] == 1)
     }
 }
+
+extension RedactorLeakTests {
+    /// Send re-runs the redactor, so redacting twice must change nothing.
+    @Test(arguments: cases)
+    func redactionIsIdempotent(_ c: Case) {
+        let once = Redactor.redact(c.message).text
+        let twice = Redactor.redact(once)
+        #expect(twice.text == once)
+        #expect(twice.totalRedactions == 0, "Second pass changed: \(twice.text)")
+    }
+}
