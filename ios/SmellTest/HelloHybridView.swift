@@ -11,13 +11,21 @@ struct HelloHybridView: View {
     @State private var isRunning = false
 
     // Placeholder until Remote Config holds the cloud model name.
-    private let cloudModelName = "gemini-3.5-flash-lite"
+    private var cloudModelName: String { RemoteSettings.current.cloudModel }
 
     var body: some View {
         NavigationStack {
             List {
                 Section("On-device model") {
                     Text(availabilityText)
+                }
+                Section("Remote Config") {
+                    let s = RemoteSettings.current
+                    Text("From server: \(RemoteSettings.serverValueCount) of 4 values")
+                    Text("Cloud model: \(s.cloudModel)")
+                    Text("Second opinion: \(s.secondOpinionEnabled ? "on" : "paused")")
+                    Text("Warning signs to escalate: \(s.minWarningSigns)")
+                    Text("Current scam patterns: \(s.currentPatterns.count)")
                 }
                 Section {
                     Button("Run on-device only") { Task { await runOnDeviceOnly() } }
