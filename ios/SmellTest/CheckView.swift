@@ -119,8 +119,13 @@ struct CheckView: View {
                 }
                 .padding()
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle("Smell Test")
             .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") { editorFocused = false }
+                }
                 #if DEBUG
                 ToolbarItem(placement: .topBarLeading) {
                     Button { showDiagnostics = true } label: { Image(systemName: "stethoscope") }
@@ -145,7 +150,7 @@ struct CheckView: View {
                 .font(.headline)
             TextEditor(text: $model.message)
                 .focused($editorFocused)
-                .frame(minHeight: 140)
+                .frame(minHeight: 140, maxHeight: 260)
                 .padding(8)
                 .scrollContentBackground(.hidden)
                 .background(.fill.tertiary, in: .rect(cornerRadius: 12))
@@ -272,7 +277,9 @@ struct CheckView: View {
         case .onDeviceUnavailable:
             " " + (CheckEngine.unavailableReason() ?? "") + " Nothing was sent anywhere."
         case .tooLongForOnDevice:
-            " You can get a second opinion with personal details removed, or paste just the part that worries you. Nothing was sent anywhere."
+            RemoteSettings.current.secondOpinionEnabled
+                ? " You can get a second opinion with personal details removed, or paste just the part that worries you. Nothing was sent anywhere."
+                : " Try pasting just the part that worries you. Nothing was sent anywhere."
         default:
             ""
         }
