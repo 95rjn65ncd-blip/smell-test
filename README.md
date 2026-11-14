@@ -13,6 +13,7 @@
 - [ ] Share Extension
 - [x] Privacy Shield: fixed patterns + on-device name pass, preview with Send/Cancel, editable, re-checked on Send
 - [x] Second opinion through `HybridModel` on approved text only, with "What left your iPhone" shown exactly
+- [x] Remote Config with validated defaults
 - [ ] Chrome web version
 - [ ] Benchmark
 
@@ -25,6 +26,7 @@
 | Hello-world hybrid smoke test (debug diagnostics) | [ios/SmellTest/HelloHybridView.swift](ios/SmellTest/HelloHybridView.swift) |
 | On-device-only first pass of every check (no cloud path) | [ios/SmellTest/CheckEngine.swift](ios/SmellTest/CheckEngine.swift) |
 | Verdict schema, validation, redactor, escalation rules (no network code) | [Packages/SmellTestCore](Packages/SmellTestCore) |
+| Remote Config (cloud model, kill switch, escalation threshold, current scam patterns) | [ios/SmellTest/RemoteSettings.swift](ios/SmellTest/RemoteSettings.swift), validated in [Settings.swift](Packages/SmellTestCore/Sources/SmellTestCore/Settings.swift) |
 | App Check (debug provider / App Attest) | [ios/SmellTest/SmellTestApp.swift](ios/SmellTest/SmellTestApp.swift) |
 
 ## Design

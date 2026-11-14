@@ -21,6 +21,7 @@ struct SmellTestApp: App {
         AppCheck.setAppCheckProviderFactory(AppAttestFactory())
         #endif
         FirebaseApp.configure()
+        RemoteSettings.start()
         isFirebaseConfigured = true
     }
 

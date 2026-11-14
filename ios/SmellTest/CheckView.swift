@@ -187,7 +187,7 @@ struct CheckView: View {
             ResultCard(outcome: outcome, sentText: nil)
             if outcome.escalation != nil, case .none = model.second { secondOpinionButton }
             #if DEBUG
-            if outcome.escalation == nil, case .none = model.second {
+            if outcome.escalation == nil, RemoteSettings.current.secondOpinionEnabled, case .none = model.second {
                 Button("Force second opinion (debug builds only)") {
                     Task { await model.prepareSecondOpinion() }
                 }
@@ -202,7 +202,18 @@ struct CheckView: View {
         }
     }
 
+    @ViewBuilder
     private var secondOpinionButton: some View {
+        if RemoteSettings.current.secondOpinionEnabled {
+            secondOpinionButtonEnabled
+        } else {
+            Text("Second opinions are paused right now. Nothing was sent.")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private var secondOpinionButtonEnabled: some View {
         Button {
             Task { await model.prepareSecondOpinion() }
         } label: {

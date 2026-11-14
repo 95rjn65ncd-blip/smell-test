@@ -46,6 +46,20 @@ before anything is sent, and you see exactly what will be sent before it goes.**
 - **An explicit test of the fallback path**: when the on-device model is unavailable, the hybrid session gets only
   approved redacted text, and the original text never reaches any session that has a cloud model.
 
+## Remote Config
+
+Every value is validated in `SmellTestCore/Settings.swift`; anything missing or out of range uses the built-in
+default, so a bad console edit can't break checks or loosen the privacy rules.
+
+| Parameter | Default | Rule |
+|---|---|---|
+| `cloud_model` | `gemini-3.5-flash-lite` | must look like `gemini-…` |
+| `second_opinion_enabled` | `true` | kill switch; `false` hides the second opinion and nothing is sent |
+| `min_warning_signs` | `2` | 1–5; how many kinds of warning sign make "no red flags" escalate. Set from benchmark data |
+| `current_scam_patterns` | empty | one per line, at most 5, 120 characters each; added to the prompt |
+
+There is no auto-send setting. Nothing is ever sent without the Send tap.
+
 ## Benchmark
 
 Reported separately for on-device and cloud: **misses** (scams not flagged), **false alarms** (legitimate messages

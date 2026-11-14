@@ -31,8 +31,10 @@ public enum RedFlagScanner {
         return found
     }
 
-    /// Two or more different kinds of warning sign.
-    public static func isStrong(_ signals: Set<Signal>) -> Bool { signals.count >= 2 }
+    /// At least `minimum` different kinds of warning sign (2 unless Remote Config says otherwise).
+    public static func isStrong(_ signals: Set<Signal>, minimum: Int = Settings.defaults.minWarningSigns) -> Bool {
+        signals.count >= minimum
+    }
 }
 
 /// Decides when a second opinion is worth offering. Never based on the model's own confidence.
@@ -56,16 +58,19 @@ public enum EscalationReason: String, Equatable, Sendable {
 
 public enum EscalationPolicy {
     /// Before any model runs: can the on-device first pass even happen?
-    public static func preCheck(message: String, onDeviceAvailable: Bool) -> EscalationReason? {
+    public static func preCheck(message: String, onDeviceAvailable: Bool,
+                                currentPatterns: [String] = []) -> EscalationReason? {
         if !onDeviceAvailable { return .onDeviceUnavailable }
-        if !VerdictPrompt.fitsOnDevice(message: message) { return .tooLongForOnDevice }
+        if !VerdictPrompt.fitsOnDevice(message: message, currentPatterns: currentPatterns) { return .tooLongForOnDevice }
         return nil
     }
 
     /// After the on-device first pass.
-    public static func afterOnDevice(_ result: CheckResult, message: String) -> EscalationReason? {
+    public static func afterOnDevice(_ result: CheckResult, message: String,
+                                     minWarningSigns: Int = Settings.defaults.minWarningSigns) -> EscalationReason? {
         if result.verdict == .notSure { return .modelNotSure }
-        if result.verdict == .noRedFlags && RedFlagScanner.isStrong(RedFlagScanner.scan(message)) {
+        if result.verdict == .noRedFlags
+            && RedFlagScanner.isStrong(RedFlagScanner.scan(message), minimum: minWarningSigns) {
             return .patternsDisagree
         }
         return nil

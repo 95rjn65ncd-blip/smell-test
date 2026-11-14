@@ -44,8 +44,16 @@ struct CheckEngine {
         }
     }
 
+    /// Remote Config values for this check (validated; defaults when not fetched).
+    let settings: Settings
+
+    @MainActor init(settings: Settings = RemoteSettings.current) {
+        self.settings = settings
+    }
+
     func checkOnDevice(_ message: String) async throws(Failure) -> Outcome {
-        if let reason = EscalationPolicy.preCheck(message: message, onDeviceAvailable: Self.onDeviceAvailable) {
+        if let reason = EscalationPolicy.preCheck(message: message, onDeviceAvailable: Self.onDeviceAvailable,
+                                                  currentPatterns: settings.currentPatterns) {
             throw .needsSecondOpinion(reason)
         }
         let ai = FirebaseAI.firebaseAI(backend: .googleAI(), useLimitedUseAppCheckTokens: true)
@@ -56,7 +64,7 @@ struct CheckEngine {
         let raw: String
         let modelVersion: String
         do {
-            let response = try await session.respond(to: VerdictPrompt.prompt(for: message))
+            let response = try await session.respond(to: VerdictPrompt.prompt(for: message, currentPatterns: settings.currentPatterns))
             raw = response.content
             modelVersion = response.rawResponse.modelVersion
         } catch {
@@ -74,7 +82,8 @@ struct CheckEngine {
             throw .needsSecondOpinion(.onDeviceCouldNotAnswer)
         }
         return Outcome(result: result, modelVersion: modelVersion, milliseconds: ms,
-                       escalation: EscalationPolicy.afterOnDevice(result, message: message))
+                       escalation: EscalationPolicy.afterOnDevice(result, message: message,
+                                                                  minWarningSigns: settings.minWarningSigns))
     }
 
     /// The parser failure case name only, e.g. "wrongNumberOfSteps". Never any text.
@@ -104,17 +113,16 @@ struct CheckEngine {
 
     // MARK: - Second opinion (the only path that can reach the cloud)
 
-    /// Placeholder until Remote Config supplies the cloud model name.
-    static let cloudModelName = "gemini-3.5-flash-lite"
-
     /// Runs the hybrid session on text the user approved in the Privacy Shield. It accepts only
     /// `ApprovedText`, which can't be built from the original message.
     ///
     /// Cloud first (a second opinion should come from a different, larger model), falling back
     /// to the on-device model when offline: `HybridModel(primary: cloud, secondary: device)`.
     func secondOpinion(_ approved: ApprovedText) async throws(Failure) -> Outcome {
+        // Kill switch (Remote Config): nothing is sent while second opinions are paused.
+        guard settings.secondOpinionEnabled else { throw .modelError("paused") }
         let ai = FirebaseAI.firebaseAI(backend: .googleAI(), useLimitedUseAppCheckTokens: true)
-        let cloud = ai.geminiModel(name: Self.cloudModelName)
+        let cloud = ai.geminiModel(name: settings.cloudModel)
         let device = Self.onDeviceModel
         let hybrid = HybridModel(primary: cloud, secondary: device)
         let session = ai.generativeModelSession(model: hybrid)
@@ -122,7 +130,7 @@ struct CheckEngine {
         let raw: String
         let modelVersion: String
         do {
-            let response = try await session.respond(to: VerdictPrompt.prompt(for: approved.text))
+            let response = try await session.respond(to: VerdictPrompt.prompt(for: approved.text, currentPatterns: settings.currentPatterns))
             raw = response.content
             modelVersion = response.rawResponse.modelVersion
         } catch {

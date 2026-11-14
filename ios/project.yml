@@ -28,6 +28,8 @@ targets:
         product: FirebaseAppCheck
       - package: Firebase
         product: FirebaseCore
+      - package: Firebase
+        product: FirebaseRemoteConfig
       - package: SmellTestCore
     info:
       path: SmellTest/Info.plist
