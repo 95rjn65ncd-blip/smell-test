@@ -8,6 +8,8 @@ packages:
   Firebase:   # Pinned: 12.19.x is the last release with HybridModel (removed in 13.0). See README.
     url: https://github.com/firebase/firebase-ios-sdk
     exactVersion: "12.19.3"
+  SmellTestCore:
+    path: ../Packages/SmellTestCore
 targets:
   SmellTest:
     type: application
@@ -26,6 +28,7 @@ targets:
         product: FirebaseAppCheck
       - package: Firebase
         product: FirebaseCore
+      - package: SmellTestCore
     info:
       path: SmellTest/Info.plist
       properties:

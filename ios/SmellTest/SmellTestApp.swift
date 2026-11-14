@@ -27,7 +27,7 @@ struct SmellTestApp: App {
     var body: some Scene {
         WindowGroup {
             if isFirebaseConfigured {
-                HelloHybridView()
+                CheckView()
             } else {
                 MissingConfigView()
             }

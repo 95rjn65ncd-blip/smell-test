@@ -8,7 +8,9 @@
 ## Status
 
 - [x] iOS app shell with Firebase AI Logic hybrid inference (`HybridModel`: Apple Foundation Models on-device, Gemini in the cloud)
-- [ ] Structured verdict, result card, where-it-ran badge
+- [x] Structured verdict (validated JSON), result card, where-it-ran badge, read aloud, "Already clicked?" recovery steps
+- [x] Fixed-pattern redactor with leak tests (`cd Packages/SmellTestCore && swift test`)
+- [ ] Share Extension
 - [ ] Privacy Shield (redaction before anything leaves the phone)
 - [ ] Second opinion when the on-device result is unclear
 - [ ] Chrome web version
@@ -19,7 +21,8 @@
 | What | File |
 |---|---|
 | `HybridModel(primary: device, secondary: cloud)` and `generativeModelSession` | [ios/SmellTest/HelloHybridView.swift](ios/SmellTest/HelloHybridView.swift) |
-| On-device-only session (no cloud path) | [ios/SmellTest/HelloHybridView.swift](ios/SmellTest/HelloHybridView.swift) |
+| On-device-only first pass of every check (no cloud path) | [ios/SmellTest/CheckEngine.swift](ios/SmellTest/CheckEngine.swift) |
+| Verdict schema, validation, redactor, escalation rules (no network code) | [Packages/SmellTestCore](Packages/SmellTestCore) |
 | App Check (debug provider / App Attest) | [ios/SmellTest/SmellTestApp.swift](ios/SmellTest/SmellTestApp.swift) |
 
 ## Design
