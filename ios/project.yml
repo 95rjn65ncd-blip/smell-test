@@ -1,0 +1,41 @@
+# XcodeGen spec. Generate the project with:  cd ios && xcodegen
+name: SmellTest
+options:
+  bundleIdPrefix: com.cognitoagora
+  deploymentTarget:
+    iOS: "26.0"
+packages:
+  Firebase:   # Pinned: 12.19.x is the last release with HybridModel (removed in 13.0). See README.
+    url: https://github.com/firebase/firebase-ios-sdk
+    exactVersion: "12.19.3"
+targets:
+  SmellTest:
+    type: application
+    platform: iOS
+    sources:
+      - path: SmellTest
+        excludes:
+          - "*.template.plist"
+    resources:
+      - path: SmellTest/GoogleService-Info.plist
+        optional: true
+    dependencies:
+      - package: Firebase
+        product: FirebaseAILogic
+      - package: Firebase
+        product: FirebaseAppCheck
+      - package: Firebase
+        product: FirebaseCore
+    info:
+      path: SmellTest/Info.plist
+      properties:
+        CFBundleDisplayName: Smell Test
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cognitoagora.smelltest
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: NO

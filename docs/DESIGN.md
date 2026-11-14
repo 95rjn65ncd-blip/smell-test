@@ -1,0 +1,63 @@
+# Design rules
+
+These rules are settled. Code, UI copy, README and the video follow them.
+
+## Verdicts
+
+The verdict is one of exactly four values:
+
+| Value | UI label |
+|---|---|
+| `scam` | Scam |
+| `likely_scam` | Likely scam |
+| `not_sure` | Not sure |
+| `no_red_flags` | No red flags found |
+
+There is **no "safe" verdict**. The app never tells anyone a message is safe, only that it found no red flags.
+On a parse or validation failure the app shows "Couldn't check, try again". It never makes up a verdict.
+
+## Privacy wording
+
+Never claim personal details *cannot* leave the phone. The accurate claim is: **personal details are removed
+before anything is sent, and you see exactly what will be sent before it goes.**
+
+## Check flow
+
+1. **First pass, on-device only.** The original text goes only to a session built on the on-device model alone
+   (`generativeModelSession(model: SystemLanguageModel.default)`). That session has no cloud path, so the
+   original text can never fall back to the cloud.
+2. **Escalate** only when the verdict is `not_sure`, the fixed patterns disagree with the model, the input is too
+   long for on-device (instructions + input + answer must fit well under 4,096 tokens), the on-device model is
+   unavailable, or the user asks for a cloud check of the image.
+3. **Redact.** Fixed patterns first (phone, email, card/account numbers, codes, addresses). Then the on-device model
+   catches names, if it's available. If the on-device model is unavailable: fixed patterns only, a louder warning,
+   and the user can edit the text.
+4. **Show** exactly what will be sent, with redactions visible. **Send** / **Cancel**.
+5. **Consent.** Nothing is sent without the Send tap.
+6. **Hybrid session on the approved text only.** `HybridModel(primary: device, secondary: cloud)` runs only on
+   the redacted, user-approved text.
+7. After each check, show "what left your phone": nothing, or the exact redacted text. The original is never logged.
+
+### Tests
+
+- Leak tests depend only on the fixed patterns: no original personal detail ever appears in an outgoing request.
+- **An explicit test of the fallback path**: when the on-device model is unavailable, the hybrid session gets only
+  approved redacted text, and the original text never reaches any session that has a cloud model.
+
+## Benchmark
+
+Reported separately for on-device and cloud: **misses** (scams not flagged), **false alarms** (legitimate messages
+flagged), **"not sure" rate**, **latency** (median time to verdict) and **cloud calls** (made and avoided).
+Every number in the README comes from the benchmark script.
+
+## Scope calls
+
+- **Chrome version: decide by Nov 19.** Cut it if judges can't try it easily.
+- **Share Extension can slip** if it threatens the core flow.
+
+## Demo story
+
+1. An offline check works on the phone.
+2. An honest "Not sure".
+3. A redacted second opinion from the cloud, with the preview and consent.
+4. A practical next step.

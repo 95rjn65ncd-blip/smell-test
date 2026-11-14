@@ -1,0 +1,26 @@
+# Firebase config files: never commit real ones. Templates live next to them as *.template.*
+GoogleService-Info.plist
+web/src/firebase-config.js
+.firebaserc
+firebase-debug.log*
+.env
+.env.*
+
+# App Check debug tokens: never commit
+*debug-token*
+
+# Xcode
+ios/*.xcodeproj/
+xcuserdata/
+DerivedData/
+*.xcuserstate
+build/
+.swiftpm/
+.build/
+
+# Node
+node_modules/
+dist/
+
+# macOS
+.DS_Store
