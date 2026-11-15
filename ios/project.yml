@@ -32,6 +32,11 @@ targets:
         product: FirebaseRemoteConfig
       - package: SmellTestCore
       - target: ShareExtension
+    entitlements:
+      path: SmellTest/SmellTest.entitlements
+      properties:
+        # App Check only accepts App Attest tokens from Apple's production environment.
+        com.apple.developer.devicecheck.appattest-environment: production
     info:
       path: SmellTest/Info.plist
       properties:
