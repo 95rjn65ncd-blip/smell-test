@@ -66,4 +66,48 @@ struct VerdictParserTests {
         let out = json(verdict: "likely_scam", scamType: "prize", quote: "don't miss out")
         #expect(try VerdictParser.parse(out, message: msg).reasons.count == 1)
     }
+
+    @Test func stepsNeverContainLinksOrNumbers() throws {
+        let out = """
+        {"verdict":"scam","scam_type":"package_delivery","summary":"This looks like a fake delivery text.",
+         "reasons":[{"quote":"Pay the $1.99 redelivery fee","why":"Real carriers don't ask for fees by text."}],
+         "next_steps":["Go to www.parcelpoint-help.com to check.","Call 555-201-3344 to report it.","Delete the message."]}
+        """
+        let r = try VerdictParser.parse(out, message: message)
+        #expect(r.nextSteps.count == 3)
+        #expect(r.nextSteps.allSatisfy { !ContactDetails.contains($0) })
+        #expect(r.nextSteps[2] == "Delete the message.")
+    }
+
+    @Test func rejectsInventedContactInSummary() {
+        let out = json().replacingOccurrences(of: "This looks like a fake delivery text.",
+                                              with: "Check at parcelpoint.com instead.")
+        #expect(throws: VerdictParser.Failure.inventedContactDetails) {
+            try VerdictParser.parse(out, message: message)
+        }
+    }
+
+    @Test func allowsContactFromMessageInSummary() throws {
+        let out = json().replacingOccurrences(of: "This looks like a fake delivery text.",
+                                              with: "The link parcelpoint-redelivery.top is not the real carrier.")
+        #expect(try VerdictParser.parse(out, message: message).verdict == .scam)
+    }
+
+    @Test func stringReasonsCannotBackAWarning() {
+        let out = json().replacingOccurrences(of: #"[{"quote":"Pay the $1.99 redelivery fee","why":"Real carriers don't ask for fees by text."}]"#,
+                                              with: #"["Asks for a fee"]"#)
+        #expect(throws: VerdictParser.Failure.warningWithoutEvidence) {
+            try VerdictParser.parse(out, message: message)
+        }
+    }
+
+    @Test func fixedStepsAreSafe() {
+        for v in Verdict.allCases { #expect(SafeSteps.steps(for: v).allSatisfy { !ContactDetails.contains($0) }) }
+    }
+
+    @Test func dropsRedFlagNumbering() throws {
+        let out = json().replacingOccurrences(of: "Real carriers don't ask for fees by text.",
+                                              with: "Asks for a fee to receive something (red flag 1).")
+        #expect(try VerdictParser.parse(out, message: message).reasons[0].why == "Asks for a fee to receive something.")
+    }
 }

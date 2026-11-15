@@ -55,7 +55,7 @@ default, so a bad console edit can't break checks or loosen the privacy rules.
 |---|---|---|
 | `cloud_model` | `gemini-3.5-flash-lite` | must look like `gemini-…` |
 | `second_opinion_enabled` | `true` | kill switch; `false` hides the second opinion and nothing is sent |
-| `min_warning_signs` | `2` | 1–5; how many kinds of warning sign make "no red flags" escalate. Set from benchmark data |
+| `min_warning_signs` | `2` | 1–5; how many kinds of warning sign make "no red flags" escalate. Benchmark (Nov 15): 1 catches one more scam in 240 checks but offers 9 more unneeded second opinions; 3–5 behave the same as 2 |
 | `current_scam_patterns` | empty | one per line, at most 5, 120 characters each; added to the prompt |
 
 There is no auto-send setting. Nothing is ever sent without the Send tap.
@@ -64,7 +64,11 @@ There is no auto-send setting. Nothing is ever sent without the Send tap.
 
 Reported separately for on-device and cloud: **misses** (scams not flagged), **false alarms** (legitimate messages
 flagged), **"not sure" rate**, **latency** (median time to verdict) and **cloud calls** (made and avoided).
-Every number in the README comes from the benchmark script.
+Every number in the README comes from the benchmark script ([benchmark/](../benchmark)).
+
+The answer checks never show a link, phone number or email address the model wrote: a next step containing one is
+replaced with a fixed, human-written step, and a summary or reason that mentions contact details not in the
+message is rejected. (The first prompt version invented a bank website in a next step.)
 
 ## Scope calls
 

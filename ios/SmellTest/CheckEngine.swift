@@ -96,6 +96,7 @@ struct CheckEngine {
         case .missingSummary: "missingSummary"
         case .wrongNumberOfSteps(let n): "wrongNumberOfSteps(\(n))"
         case .warningWithoutEvidence: "warningWithoutEvidence"
+        case .inventedContactDetails: "inventedContactDetails"
         }
     }
 

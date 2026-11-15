@@ -15,7 +15,7 @@
 - [x] Second opinion through `HybridModel` on approved text only, with "What left your iPhone" shown exactly
 - [x] Remote Config with validated defaults
 - [ ] Chrome web version
-- [ ] Benchmark
+- [x] Benchmark: 150 made-up messages, rerunnable on a Mac ([benchmark/](benchmark))
 
 ## Where Firebase AI Logic is called
 
@@ -28,6 +28,25 @@
 | Verdict schema, validation, redactor, escalation rules (no network code) | [Packages/SmellTestCore](Packages/SmellTestCore) |
 | Remote Config (cloud model, kill switch, escalation threshold, current scam patterns) | [ios/SmellTest/RemoteSettings.swift](ios/SmellTest/RemoteSettings.swift), validated in [Settings.swift](Packages/SmellTestCore/Sources/SmellTestCore/Settings.swift) |
 | App Check (debug provider / App Attest) | [ios/SmellTest/SmellTestApp.swift](ios/SmellTest/SmellTestApp.swift) |
+
+## Benchmark
+
+150 made-up messages (80 scams, 70 ordinary messages, many deliberately tricky), 3 runs each, on the Apple
+on-device model. These are first-pass numbers before any second opinion. The prompt was tuned on half the messages;
+these are from the other half, which wasn't used while tuning.
+([full report](benchmark/results/2026-11-15-prompt-v2.md), [how to rerun](benchmark/README.md))
+
+| On-device first pass (holdout) | |
+|---|---|
+| Scams missed (said "No red flags", no second opinion offered) | 2% |
+| Scams caught | 93% |
+| Ordinary messages wrongly flagged as a scam | 22% |
+| "Not sure" (second opinion offered) | 16% |
+| Second opinions offered | 17% of checks |
+| Time to answer, median | 2.4 s |
+
+The first version of the prompt flagged 64% of ordinary messages as scams
+([report](benchmark/results/2026-11-15-prompt-v1.md)); the benchmark is how that was found and fixed.
 
 ## Design
 

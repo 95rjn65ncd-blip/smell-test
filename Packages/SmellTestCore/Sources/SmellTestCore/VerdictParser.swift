@@ -11,6 +11,8 @@ public enum VerdictParser {
         case missingSummary
         case wrongNumberOfSteps(Int)
         case warningWithoutEvidence
+        /// The summary or a reason mentions a link, phone number or email that isn't in the message.
+        case inventedContactDetails
     }
 
     private struct Raw: Decodable {
@@ -24,6 +26,20 @@ public enum VerdictParser {
     private struct RawReason: Decodable {
         let quote: String?
         let why: String?
+
+        /// Small models sometimes write a reason as a bare string. That has no quote, so it can't
+        /// back a warning; it's decoded as empty and dropped instead of failing the whole answer.
+        init(from decoder: Decoder) throws {
+            if let c = try? decoder.container(keyedBy: CodingKeys.self) {
+                quote = try c.decodeIfPresent(String.self, forKey: .quote)
+                why = try c.decodeIfPresent(String.self, forKey: .why)
+            } else {
+                quote = nil
+                why = nil
+            }
+        }
+
+        private enum CodingKeys: String, CodingKey { case quote, why }
     }
 
     static let maxReasons = 3
@@ -50,23 +66,34 @@ public enum VerdictParser {
 
         let summary = clean(raw.summary ?? "")
         guard !summary.isEmpty else { throw .missingSummary }
+        // Never show a link, number or address the model made up.
+        guard !ContactDetails.hasInvented(in: summary, message: message) else { throw .inventedContactDetails }
 
         // Keep only reasons whose quote really appears in the message. A reason that "quotes"
         // words the message doesn't contain is dropped, never shown.
         let reasons: [Reason] = (raw.reasons ?? []).compactMap { r in
             let quote = clean(r.quote ?? "")
-            let why = clean(r.why ?? "")
+            // The prompt numbers its red flags; that numbering means nothing to the reader.
+            let why = clean((r.why ?? "").replacingOccurrences(of: #"\s*\((red flag|flag) \d\)"#, with: "",
+                                                               options: [.regularExpression, .caseInsensitive]))
             guard !quote.isEmpty, !why.isEmpty, containsQuote(quote, in: message) else { return nil }
             return Reason(quote: quote, why: why)
         }
         .prefix(maxReasons)
         .map { $0 }
 
+        if reasons.contains(where: { ContactDetails.hasInvented(in: $0.why, message: message) }) {
+            throw .inventedContactDetails
+        }
+
         // A warning must be backed by at least one real quote from the message.
         if verdict.isWarning && reasons.isEmpty { throw .warningWithoutEvidence }
 
-        let steps = (raw.next_steps ?? []).map(clean).filter { !$0.isEmpty }
-        guard steps.count == 3 else { throw .wrongNumberOfSteps(steps.count) }
+        let modelSteps = (raw.next_steps ?? []).map(clean).filter { !$0.isEmpty }
+        guard modelSteps.count == 3 else { throw .wrongNumberOfSteps(modelSteps.count) }
+        // A step must never send the reader to a link, number or address, not even one from the
+        // message (that could be the scammer's). Such a step is swapped for a fixed, human-written one.
+        let steps = SafeSteps.replacingContactDetails(in: modelSteps, verdict: verdict)
 
         return CheckResult(
             verdict: verdict,
