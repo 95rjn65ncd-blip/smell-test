@@ -81,9 +81,9 @@ struct CheckEngine {
             // Never show an untrusted answer. Offer the redacted second opinion instead.
             throw .needsSecondOpinion(.onDeviceCouldNotAnswer)
         }
-        return Outcome(result: result, modelVersion: modelVersion, milliseconds: ms,
-                       escalation: EscalationPolicy.afterOnDevice(result, message: message,
-                                                                  minWarningSigns: settings.minWarningSigns))
+        // Fixed patterns can turn an unsupported warning into "Not sure" (see EscalationPolicy.firstPass).
+        let shown = EscalationPolicy.firstPass(result, message: message, minWarningSigns: settings.minWarningSigns)
+        return Outcome(result: shown.result, modelVersion: modelVersion, milliseconds: ms, escalation: shown.escalation)
     }
 
     /// The parser failure case name only, e.g. "wrongNumberOfSteps". Never any text.

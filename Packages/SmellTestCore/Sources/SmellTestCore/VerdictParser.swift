@@ -74,7 +74,7 @@ public enum VerdictParser {
         let reasons: [Reason] = (raw.reasons ?? []).compactMap { r in
             let quote = clean(r.quote ?? "")
             // The prompt numbers its red flags; that numbering means nothing to the reader.
-            let why = clean((r.why ?? "").replacingOccurrences(of: #"\s*\((red flag|flag) \d\)"#, with: "",
+            let why = clean((r.why ?? "").replacingOccurrences(of: #"\s*\((red flags?|flags?|scam types?|types?) \d+((,| and| or) ?\d+)*\)"#, with: "",
                                                                options: [.regularExpression, .caseInsensitive]))
             guard !quote.isEmpty, !why.isEmpty, containsQuote(quote, in: message) else { return nil }
             return Reason(quote: quote, why: why)

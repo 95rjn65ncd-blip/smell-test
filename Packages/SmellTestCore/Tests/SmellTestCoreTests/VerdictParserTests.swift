@@ -109,5 +109,9 @@ struct VerdictParserTests {
         let out = json().replacingOccurrences(of: "Real carriers don't ask for fees by text.",
                                               with: "Asks for a fee to receive something (red flag 1).")
         #expect(try VerdictParser.parse(out, message: message).reasons[0].why == "Asks for a fee to receive something.")
+        for tag in ["(scam type 5)", "(red flags 1 and 4)", "(flag 2, 3)"] {
+            let o = json().replacingOccurrences(of: "Real carriers don't ask for fees by text.", with: "A fee \(tag).")
+            #expect(try VerdictParser.parse(o, message: message).reasons[0].why == "A fee.")
+        }
     }
 }

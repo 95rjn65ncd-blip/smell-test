@@ -29,8 +29,12 @@ struct Row: Codable {
     let difficulty: String
     let split: String
     let run: Int
-    /// "scam", "likely_scam", "not_sure", "no_red_flags", "could_not_answer" or "too_long".
+    /// What the app shows: "scam", "likely_scam", "not_sure", "no_red_flags", "could_not_answer" or "too_long".
     let outcome: String
+    /// The model's own verdict before the app's fixed-pattern rules (nil when it couldn't answer).
+    let modelVerdict: String?
+    /// The second-opinion reason the app would give, if any.
+    let escalation: String?
     /// Why the phone couldn't answer (error type or parser failure). Never message text.
     let failure: String?
     let scamType: String?
@@ -94,9 +98,11 @@ func parserFailureName(_ f: VerdictParser.Failure) -> String {
 
 @MainActor func check(_ item: Item, run: Int) async -> Row {
     let signs = RedFlagScanner.scan(item.text).count
-    func row(_ outcome: String, failure: String? = nil, type: String? = nil, ms: Int? = nil) -> Row {
+    func row(_ outcome: String, failure: String? = nil, type: String? = nil, ms: Int? = nil,
+             modelVerdict: String? = nil, escalation: String? = nil) -> Row {
         Row(id: item.id, label: item.label, kind: item.kind, difficulty: item.difficulty, split: item.split, run: run,
-            outcome: outcome, failure: failure, scamType: type, milliseconds: ms, warningSigns: signs)
+            outcome: outcome, modelVerdict: modelVerdict, escalation: escalation, failure: failure,
+            scamType: type, milliseconds: ms, warningSigns: signs)
     }
     if EscalationPolicy.preCheck(message: item.text, onDeviceAvailable: true) == .tooLongForOnDevice {
         return row("too_long")
@@ -114,7 +120,10 @@ func parserFailureName(_ f: VerdictParser.Failure) -> String {
     if showRaw { print("--- \(item.id) raw answer:\n\(raw)") }
     do {
         let result = try VerdictParser.parse(raw, message: item.text)
-        return row(result.verdict.rawValue, type: result.scamType.rawValue, ms: ms)
+        // The same rule the app applies before showing the answer.
+        let shown = EscalationPolicy.firstPass(result, message: item.text)
+        return row(shown.result.verdict.rawValue, type: shown.result.scamType.rawValue, ms: ms,
+                   modelVerdict: result.verdict.rawValue, escalation: shown.escalation?.rawValue)
     } catch {
         return row("could_not_answer", failure: parserFailureName(error), ms: ms)
     }
@@ -177,14 +186,14 @@ let formatter = ISO8601DateFormatter()
 formatter.formatOptions = [.withFullDate]
 let date = formatter.string(from: Date())
 let os = ProcessInfo.processInfo.operatingSystemVersionString
-let stem = "\(date)-prompt-\(VerdictPrompt.version)"
+let stem = "\(date)-prompt-\(VerdictPrompt.version)-rules-\(EscalationPolicy.rulesVersion)"
 
 var md = """
 # Smell Test benchmark: \(date)
 
 - Messages: \(items.count) made-up messages (\(items.filter { $0.label == "scam" }.count) scam, \(items.filter { $0.label == "legit" }.count) not scam), \(repeats) run(s) each
 - Model: Apple on-device model on this Mac (\(os)), guardrails `.permissiveContentTransformations`
-- Prompt: `\(VerdictPrompt.version)`, same prompt, parser and escalation rules as the iPhone app
+- Prompt: `\(VerdictPrompt.version)`, escalation rules: `\(EscalationPolicy.rulesVersion)`; same prompt, parser and escalation rules as the iPhone app
 - "Cloud calls" are second opinions the app would **offer**. Each still needs the Privacy Shield and the user's OK.
 - This run measures the on-device first pass only. It does not measure the cloud second opinion.
 - The prompt was tuned using only the **dev** messages (odd-numbered). The **holdout** messages (even-numbered)
@@ -249,21 +258,17 @@ for t in 1...RedFlagScanner.Signal.allCases.count {
     md += "| \(t)\(t == current ? " (current)" : "") | \(pct(s.missed, scamN)) | \(pct(s.cloudCalls, scamN)) | \(pct(l.cloudCalls, legitN)) | \(pct(s.cloudCalls + l.cloudCalls, scamN + legitN)) |\n"
 }
 
-// What-if: the fixed patterns disagreeing in the other direction. Not what the app does today.
-let scamWarn = rows.filter { $0.label == "scam" && ($0.outcome == "scam" || $0.outcome == "likely_scam") }
-let legitWarn = rows.filter { $0.label == "legit" && ($0.outcome == "scam" || $0.outcome == "likely_scam") }
+// Effect of the "warning without fixed warning signs shows Not sure" rule.
+let downgraded = rows.filter { $0.escalation == EscalationReason.warningWithoutCommonSigns.rawValue }
+let modelFalseAlarms = rows.filter { $0.label == "legit" && ($0.modelVerdict == "scam" || $0.modelVerdict == "likely_scam") }.count
 md += """
 
-## What-if: "Scam" with no fixed warning signs shown as "Not sure"
+## Effect of the "no usual warning signs" rule
 
-Not what the app does today. If a "Scam" or "Likely scam" answer on a message with **zero** fixed-pattern
-warning signs were shown as "Not sure" (with a second opinion offered) instead:
-
-| | Today | What-if |
-|---|---|---|
-| False alarms | \(pct(legitWarn.count, legitN)) | \(pct(legitWarn.filter { $0.warningSigns > 0 }.count, legitN)) |
-| Scams shown as a warning | \(pct(scamWarn.count, scamN)) | \(pct(scamWarn.filter { $0.warningSigns > 0 }.count, scamN)) |
-| Scams moved to "Not sure" (still offered a second opinion) | 0 | \(pct(scamWarn.filter { $0.warningSigns == 0 }.count, scamN)) |
+When the model says "Scam" or "Likely scam" but the message has none of the fixed warning signs, the app
+shows "Not sure" and offers a second opinion. Without that rule, \(pct(modelFalseAlarms, legitN)) of
+ordinary messages would have been flagged as scams. The rule moved \(pct(downgraded.filter { $0.label == "legit" }.count, legitN))
+of ordinary messages and \(pct(downgraded.filter { $0.label == "scam" }.count, scamN)) of scams to "Not sure".
 
 """
 

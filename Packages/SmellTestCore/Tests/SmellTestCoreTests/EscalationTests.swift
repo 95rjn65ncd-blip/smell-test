@@ -39,4 +39,26 @@ struct EscalationTests {
         #expect(VerdictPrompt.fitsOnDevice(message: maxMsg))
         #expect(!VerdictPrompt.fitsOnDevice(message: maxMsg + String(repeating: "a", count: 10)))
     }
+
+    @Test func warningWithoutFixedSignsShowsNotSure() {
+        let quoted = CheckResult(verdict: .scam, scamType: .romance, summary: "A scam.",
+                                 reasons: [Reason(quote: "lunch Thursday", why: "Odd.")], nextSteps: ["Block them.", "b", "c"])
+        let (shown, reason) = EscalationPolicy.firstPass(quoted, message: benign)
+        #expect(shown.verdict == .notSure)
+        #expect(reason == .warningWithoutCommonSigns)
+        #expect(shown.reasons == quoted.reasons)
+        #expect(shown.nextSteps == SafeSteps.steps(for: .notSure))
+    }
+
+    @Test func warningWithFixedSignsIsKept() {
+        let (shown, reason) = EscalationPolicy.firstPass(result(.scam), message: scammy)
+        #expect(shown.verdict == .scam)
+        #expect(reason == nil)
+    }
+
+    @Test func firstPassKeepsOtherRules() {
+        #expect(EscalationPolicy.firstPass(result(.noRedFlags), message: scammy).escalation == .patternsDisagree)
+        #expect(EscalationPolicy.firstPass(result(.notSure), message: benign).escalation == .modelNotSure)
+        #expect(EscalationPolicy.firstPass(result(.noRedFlags), message: benign).escalation == nil)
+    }
 }

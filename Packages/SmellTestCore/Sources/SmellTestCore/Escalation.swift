@@ -44,6 +44,8 @@ public enum EscalationReason: String, Equatable, Sendable {
     case tooLongForOnDevice
     case onDeviceUnavailable
     case onDeviceCouldNotAnswer
+    /// The model warned, but the message has none of the fixed warning signs.
+    case warningWithoutCommonSigns
 
     public var explanation: String {
         switch self {
@@ -52,11 +54,16 @@ public enum EscalationReason: String, Equatable, Sendable {
         case .tooLongForOnDevice: "This message is too long to check on your iPhone."
         case .onDeviceUnavailable: "Your iPhone can't check messages on its own right now."
         case .onDeviceCouldNotAnswer: "Your iPhone couldn't give a clear answer on this one."
+        case .warningWithoutCommonSigns: "This message doesn't have the usual warning signs, so a second opinion may help."
         }
     }
 }
 
 public enum EscalationPolicy {
+    /// Bump when the rules change; benchmark results are tagged with it.
+    /// 1: escalate on "not sure" or strong signs vs "no red flags". 2: adds warning-without-signs → "Not sure".
+    public static let rulesVersion = "2"
+
     /// Before any model runs: can the on-device first pass even happen?
     public static func preCheck(message: String, onDeviceAvailable: Bool,
                                 currentPatterns: [String] = []) -> EscalationReason? {
@@ -74,5 +81,24 @@ public enum EscalationPolicy {
             return .patternsDisagree
         }
         return nil
+    }
+
+    /// The full rule for the on-device first pass: what to show, and whether to offer a second opinion.
+    ///
+    /// The fixed patterns can disagree with the model in either direction:
+    /// - "No red flags" on a message with strong warning signs: shown as is, second opinion offered.
+    /// - "Scam" or "Likely scam" on a message with NO fixed warning signs: shown as "Not sure", with
+    ///   the model's quotes kept, fixed wording and steps, and a second opinion offered. The benchmark
+    ///   showed the small on-device model flags many ordinary messages; this cuts those false alarms.
+    public static func firstPass(_ result: CheckResult, message: String,
+                                 minWarningSigns: Int = Settings.defaults.minWarningSigns)
+        -> (result: CheckResult, escalation: EscalationReason?) {
+        if result.verdict.isWarning && RedFlagScanner.scan(message).isEmpty {
+            let shown = CheckResult(verdict: .notSure, scamType: result.scamType,
+                                    summary: "Your iPhone thought this might be a scam, but isn't sure.",
+                                    reasons: result.reasons, nextSteps: SafeSteps.steps(for: .notSure))
+            return (shown, .warningWithoutCommonSigns)
+        }
+        return (result, afterOnDevice(result, message: message, minWarningSigns: minWarningSigns))
     }
 }

@@ -60,6 +60,17 @@ default, so a bad console edit can't break checks or loosen the privacy rules.
 
 There is no auto-send setting. Nothing is ever sent without the Send tap.
 
+## Fixed patterns versus the model
+
+The fixed warning-sign patterns can overrule the on-device model in both directions (`EscalationPolicy.firstPass`):
+
+- The model says "No red flags", but the message has strong warning signs: shown as is, second opinion offered.
+- The model says "Scam" or "Likely scam", but the message has none of the warning signs: shown as **"Not sure"**,
+  with the model's quotes, fixed wording and fixed steps, and a second opinion offered. Chosen Nov 15 from the
+  benchmark: false alarms fell from 22% to 4% (holdout); more scams land on "Not sure" instead of "Scam".
+
+This applies to the on-device first pass only, not to the cloud second opinion.
+
 ## Benchmark
 
 Reported separately for on-device and cloud: **misses** (scams not flagged), **false alarms** (legitimate messages

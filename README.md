@@ -34,19 +34,21 @@
 150 made-up messages (80 scams, 70 ordinary messages, many deliberately tricky), 3 runs each, on the Apple
 on-device model. These are first-pass numbers before any second opinion. The prompt was tuned on half the messages;
 these are from the other half, which wasn't used while tuning.
-([full report](benchmark/results/2026-11-15-prompt-v2.md), [how to rerun](benchmark/README.md))
+([full report](benchmark/results/2026-11-15-prompt-v2-rules-2.md), [how to rerun](benchmark/README.md))
 
 | On-device first pass (holdout) | |
 |---|---|
 | Scams missed (said "No red flags", no second opinion offered) | 2% |
-| Scams caught | 93% |
-| Ordinary messages wrongly flagged as a scam | 22% |
-| "Not sure" (second opinion offered) | 16% |
-| Second opinions offered | 17% of checks |
+| Scams flagged as a scam | 83% |
+| Ordinary messages wrongly flagged as a scam | 4% |
+| "Not sure" (second opinion offered) | 31% of checks |
 | Time to answer, median | 2.4 s |
 
-The first version of the prompt flagged 64% of ordinary messages as scams
-([report](benchmark/results/2026-11-15-prompt-v1.md)); the benchmark is how that was found and fixed.
+How it got here: the first prompt flagged 64% of ordinary messages as scams
+([report](benchmark/results/2026-11-15-prompt-v1.md)). A clearer prompt brought that to 22%
+([report](benchmark/results/2026-11-15-prompt-v2.md)). Then a fixed rule: when the model says "Scam" but the
+message has none of the usual warning signs, the app says "Not sure" and offers a second opinion instead. That
+trades false alarms for honest "Not sure" answers.
 
 ## Design
 
