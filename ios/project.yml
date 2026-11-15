@@ -31,15 +31,57 @@ targets:
       - package: Firebase
         product: FirebaseRemoteConfig
       - package: SmellTestCore
+      - target: ShareExtension
     info:
       path: SmellTest/Info.plist
       properties:
         CFBundleDisplayName: Smell Test
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.cognitoagora.smelltest
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: NO
+
+  # Share sheet: checks shared text on the iPhone only. It has no cloud path.
+  ShareExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: ShareExtension
+      # Shared with the app. CheckEngine's on-device path is the only one the extension calls.
+      - path: SmellTest/CheckEngine.swift
+      - path: SmellTest/ResultCard.swift
+      - path: SmellTest/NoticeCard.swift
+      - path: SmellTest/GoogleService-Info.plist
+        optional: true
+        buildPhase: resources
+    dependencies:
+      - package: Firebase
+        product: FirebaseAILogic
+      - package: Firebase
+        product: FirebaseCore
+      - package: SmellTestCore
+    info:
+      path: ShareExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Smell Test
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsText: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cognitoagora.smelltest.share
         MARKETING_VERSION: "0.1.0"
         CURRENT_PROJECT_VERSION: "1"
         SWIFT_VERSION: "6.0"

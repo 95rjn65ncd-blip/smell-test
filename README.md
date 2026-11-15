@@ -10,7 +10,7 @@
 - [x] iOS app shell with Firebase AI Logic hybrid inference (`HybridModel`: Apple Foundation Models on-device, Gemini in the cloud)
 - [x] Structured verdict (validated JSON), result card, where-it-ran badge, read aloud, "Already clicked?" recovery steps
 - [x] Fixed-pattern redactor with leak tests (`cd Packages/SmellTestCore && swift test`)
-- [ ] Share Extension
+- [x] Share Extension: checks shared text on the iPhone only ([ios/ShareExtension](ios/ShareExtension))
 - [x] Privacy Shield: fixed patterns + on-device name pass, preview with Send/Cancel, editable, re-checked on Send
 - [x] Second opinion through `HybridModel` on approved text only, with "What left your iPhone" shown exactly
 - [x] Remote Config with validated defaults

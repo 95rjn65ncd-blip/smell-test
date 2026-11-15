@@ -53,7 +53,7 @@ final class CheckModel {
         second = .none
         state = .checking
         do {
-            state = .done(try await CheckEngine().checkOnDevice(text))
+            state = .done(try await CheckEngine(settings: RemoteSettings.current).checkOnDevice(text))
         } catch .needsSecondOpinion(let reason) {
             state = .needsSecondOpinion(reason)
         } catch {
@@ -65,7 +65,7 @@ final class CheckModel {
     /// Step 1 of a second opinion: build the redacted preview on the phone. Nothing is sent.
     func prepareSecondOpinion() async {
         second = .preparing
-        let names = await CheckEngine().findNamesOnDevice(checkedText)
+        let names = await CheckEngine(settings: RemoteSettings.current).findNamesOnDevice(checkedText)
         second = .reviewing(PrivacyShield.preview(original: checkedText, names: names))
     }
 
@@ -78,7 +78,7 @@ final class CheckModel {
         }
         second = .sending(sent: approved.text)
         do {
-            second = .done(try await CheckEngine().secondOpinion(approved), sent: approved.text)
+            second = .done(try await CheckEngine(settings: RemoteSettings.current).secondOpinion(approved), sent: approved.text)
         } catch {
             second = .failed("Couldn't get a second opinion. Nothing else was sent. Try again.")
         }
@@ -283,22 +283,5 @@ struct CheckView: View {
         default:
             ""
         }
-    }
-}
-
-struct NoticeCard: View {
-    let icon: String
-    let title: String
-    let text: String
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Label(title, systemImage: icon).font(.title3.bold())
-            Text(text)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(.fill.tertiary, in: .rect(cornerRadius: 16))
-        .accessibilityElement(children: .combine)
     }
 }

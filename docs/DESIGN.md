@@ -40,6 +40,14 @@ before anything is sent, and you see exactly what will be sent before it goes.**
    `ApprovedText`, which only `PrivacyShield.approve` can create, so the original text has no way in.
 7. After each check, show "what left your phone": nothing, or the exact redacted text. The original is never logged.
 
+### Share sheet
+
+Share text from another app to Smell Test and it runs step 1 in the share sheet, on the iPhone only. The
+extension has no cloud path at all: it never builds a `HybridModel`, has no App Check or Remote Config, and uses
+the built-in settings. When a second opinion would help, it says so and offers **Copy message**; the user opens
+the app and pastes it, and the second opinion goes through the Privacy Shield there. (Opening the app straight
+from a share extension isn't supported by iOS.)
+
 ### Tests
 
 - Leak tests depend only on the fixed patterns: no original personal detail ever appears in an outgoing request.
@@ -84,7 +92,7 @@ message is rejected. (The first prompt version invented a bank website in a next
 ## Scope calls
 
 - **Chrome version: decide by Nov 19.** Cut it if judges can't try it easily.
-- **Share Extension can slip** if it threatens the core flow.
+- **Share Extension:** built (Nov 15), on-device only.
 
 ## Demo story
 

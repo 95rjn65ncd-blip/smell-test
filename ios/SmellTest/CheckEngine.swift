@@ -47,7 +47,8 @@ struct CheckEngine {
     /// Remote Config values for this check (validated; defaults when not fetched).
     let settings: Settings
 
-    @MainActor init(settings: Settings = RemoteSettings.current) {
+    /// The app passes `RemoteSettings.current`; the share extension passes the built-in defaults.
+    init(settings: Settings) {
         self.settings = settings
     }
 
