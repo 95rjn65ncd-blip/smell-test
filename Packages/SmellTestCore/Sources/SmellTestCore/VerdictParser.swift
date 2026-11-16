@@ -93,7 +93,11 @@ public enum VerdictParser {
         guard modelSteps.count == 3 else { throw .wrongNumberOfSteps(modelSteps.count) }
         // A step must never send the reader to a link, number or address, not even one from the
         // message (that could be the scammer's). Such a step is swapped for a fixed, human-written one.
-        let steps = SafeSteps.replacingContactDetails(in: modelSteps, verdict: verdict)
+        // "Not sure" always gets the fixed steps: the model can't tell whether the message is real,
+        // so its advice ("call her back") can't be trusted either.
+        let steps = verdict == .notSure
+            ? SafeSteps.steps(for: .notSure)
+            : SafeSteps.replacingContactDetails(in: modelSteps, verdict: verdict)
 
         return CheckResult(
             verdict: verdict,

@@ -114,4 +114,14 @@ struct VerdictParserTests {
             #expect(try VerdictParser.parse(o, message: message).reasons[0].why == "A fee.")
         }
     }
+
+    @Test func notSureAlwaysUsesFixedSteps() throws {
+        let json = """
+        {"verdict":"not_sure","scam_type":"family_emergency","summary":"Could be real.",
+         "reasons":[{"quote":"dropped my phone","why":"A common opening for family scams."}],
+         "next_steps":["Ask Mum if she really dropped her phone.","Call her back.","Wait and see."]}
+        """
+        let r = try VerdictParser.parse(json, message: "Hi Mum, I dropped my phone, this is my new number")
+        #expect(r.nextSteps == SafeSteps.steps(for: .notSure))
+    }
 }

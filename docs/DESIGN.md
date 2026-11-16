@@ -79,6 +79,9 @@ The fixed warning-sign patterns can overrule the on-device model in both directi
 
 This applies to the on-device first pass only, not to the cloud second opinion.
 
+Every "Not sure" answer, from either model, shows the fixed "Not sure" steps, never the model's own. A model
+that can't tell whether a message is real can't be trusted to say what to do about it (Nov 16).
+
 ## Benchmark
 
 Reported separately for on-device and cloud: **misses** (scams not flagged), **false alarms** (legitimate messages
