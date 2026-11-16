@@ -1,5 +1,9 @@
 # App Store Connect listing (DRAFT — needs Eric's OK before anything is entered)
 
+**Parked until after Nov 30 (Eric, Nov 16):** App Information, the Version page, App Review Information and
+Age rating below are for a public App Store launch, not the contest. Only these are in scope now:
+privacy policy and support pages, TestFlight Test Information, App Privacy, and screenshots.
+
 Every scam example, person and company below is made up.
 
 ## App Information
