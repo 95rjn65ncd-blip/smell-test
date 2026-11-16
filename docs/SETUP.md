@@ -10,7 +10,9 @@ iOS Simulator on a Mac that has Apple Intelligence turned on.
 2. **Add an iOS app** with bundle ID `com.cognitoagora.smelltest` (or your own, and change `ios/project.yml` to match).
 3. Download **GoogleService-Info.plist** and put it in `ios/SmellTest/`. It is gitignored. Never commit it.
    `ios/SmellTest/GoogleService-Info.template.plist` shows the expected shape.
-4. **AI Logic**: open *AI Logic* in the console, click *Get started*, and choose the **Gemini Developer API**.
+4. **AI Logic**: open *AI Logic* in the console, click *Get started*, and choose the **Gemini Developer API**,
+   and finish every step (*Enable API*, then *Continue*). If requests fail with "genai config not found", this
+   setup didn't finish: the AI Logic page still shows *Get started*.
 5. **App Check**: open *Security → App Check*, register the iOS app with **App Attest**, and turn on
    enforcement for *Firebase AI Logic*.
 
