@@ -80,8 +80,14 @@ Every scam example, person and company below is made up.
   - Linked to the user: No
   - Used for tracking: No
   - Purpose: App Functionality
-- Note: Firebase App Check and Remote Config also run. Their SDKs declare their own data; check the Firebase
-  docs for what to declare before submitting (to verify, not assume).
+- Data collected: **Other Diagnostic Data** (declared by the Firebase Installations and Remote Config SDK
+  privacy manifests in the archived build; Remote Config also reads country, language, time zone and OS
+  version per the Firebase docs, read Nov 17)
+  - Linked to the user: No
+  - Used for tracking: No
+  - Purpose: Analytics
+- Checked Nov 17: every other bundled Firebase/Google manifest declares no collected data. AI monitoring is
+  off in the console, so AI Logic doesn't collect prompts.
 
 ## Age rating
 
@@ -90,7 +96,8 @@ All answers "None" / "No". Expected rating: 4+.
 ## TestFlight Test Information (needed for external testing only)
 
 - Beta App Description: the first paragraph of the Description
-- Feedback email: Eric's choice
+- Feedback email: smokylive@icloud.com (approved Nov 16)
+- Privacy Policy URL: https://iossmelltest.web.app/privacy
 - What to Test: "Paste or share messages that feel off. Try the second opinion on a Not sure answer and check
   the preview before sending."
 
