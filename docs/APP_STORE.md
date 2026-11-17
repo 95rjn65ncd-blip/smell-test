@@ -73,7 +73,7 @@ Every scam example, person and company below is made up.
 > removes personal details, shows a preview, and only sends after the user approves. The share sheet
 > extension checks shared text on-device only.
 
-## App Privacy (must match `ios/SmellTest/PrivacyInfo.xcprivacy`)
+## App Privacy (must match `ios/SmellTest/PrivacyInfo.xcprivacy`) — PUBLISHED in ASC Nov 17 (Eric's OK)
 
 - Data collected: **Other User Content** (the message with personal details removed, only when the user
   approves a second opinion)
@@ -93,7 +93,10 @@ Every scam example, person and company below is made up.
 
 All answers "None" / "No". Expected rating: 4+.
 
-## TestFlight Test Information (needed for external testing only)
+## TestFlight Test Information (needed for external testing only) — entered Nov 17
+
+Beta description, feedback email and privacy URL saved. Beta App Review contact (name, email, notes)
+needs Eric's phone number before it saves.
 
 - Beta App Description: the first paragraph of the Description
 - Feedback email: smokylive@icloud.com (approved Nov 16)
