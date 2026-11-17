@@ -54,7 +54,9 @@ Every scam example, person and company below is made up.
 
 > scam,spam,phishing,text,sms,fraud,checker,email,link,detector,security,privacy,smishing
 
-**Support URL / Privacy Policy URL:** need hosted pages. See "Open decisions".
+**Privacy Policy URL:** https://iossmelltest.web.app/privacy
+**Support URL:** https://iossmelltest.web.app/support
+(Firebase Hosting, project iossmelltest, live Nov 17; source in `site/`.)
 
 **Version:** the store shows 1.0, but the build is 0.1.0. Before App Store submission, set
 `MARKETING_VERSION` to 1.0 (TestFlight doesn't care).
@@ -102,8 +104,7 @@ All answers "None" / "No". Expected rating: 4+.
 
 ## Open decisions
 
-1. **Privacy policy and support pages.** App Store submission and external TestFlight both require a privacy
-   policy URL. Options: GitHub Pages (needs the repo public, which needs your OK), or Cloudflare Pages.
+1. ~~Privacy policy and support pages.~~ Done Nov 17: Firebase Hosting (URLs above).
 2. **Gemini data use.** On the free Gemini Developer API tier, Google may use prompts to improve its
    products. Until billing is switched to paid (planned by Nov 25), the privacy policy must say so. Don't
    claim cloud text isn't used for training.
