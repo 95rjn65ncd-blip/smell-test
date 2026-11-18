@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 import SmellTestCore
 
 @MainActor
@@ -21,8 +22,14 @@ final class CheckModel {
         case failed(String)
     }
 
-    var message = ""
+    var message = "" {
+        didSet { if message.isEmpty { screenshotNote = nil } }
+    }
     var state: State = .idle
+    /// True while the phone reads the words in a picked screenshot.
+    var readingScreenshot = false
+    /// Shown under the text box after a screenshot was read (or couldn't be).
+    var screenshotNote: String?
     var second: SecondOpinion = .none
     /// The exact text that was checked on the phone. The Shield works from this.
     private var checkedText = ""
@@ -50,6 +57,7 @@ final class CheckModel {
         let text = message.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !text.isEmpty else { return }
         checkedText = text
+        screenshotNote = nil
         second = .none
         state = .checking
         do {
@@ -86,8 +94,30 @@ final class CheckModel {
 
     func cancelSecondOpinion() { second = .none }
 
+    /// Reads the screenshot's words on the phone and puts them in the text box. Nothing is checked
+    /// until the user taps Check it, so they can fix any misread words first.
+    func readScreenshot(_ item: PhotosPickerItem) async {
+        readingScreenshot = true
+        defer { readingScreenshot = false }
+        guard let data = try? await item.loadTransferable(type: Data.self) else {
+            screenshotNote = "Couldn't open that picture. Try another one."
+            return
+        }
+        do {
+            let text = try await ScreenshotReader.read(data)
+            reset()
+            message = text
+            screenshotNote = "Words read from your screenshot on your iPhone. Fix anything that looks wrong, then tap Check it."
+        } catch .noText {
+            screenshotNote = "Couldn't find any words in that picture."
+        } catch {
+            screenshotNote = "Couldn't read that picture. Try another one."
+        }
+    }
+
     func reset() {
         message = ""
+        screenshotNote = nil
         checkedText = ""
         state = .idle
         second = .none
@@ -98,6 +128,7 @@ struct CheckView: View {
     @State private var model = CheckModel()
     @FocusState private var editorFocused: Bool
     @State private var showDiagnostics = false
+    @State private var pickedScreenshot: PhotosPickerItem?
 
     var body: some View {
         NavigationStack {
@@ -217,25 +248,48 @@ struct CheckView: View {
                 .scrollContentBackground(.hidden)
                 .background(Brand.navyRaised, in: .rect(cornerRadius: 12))
                 .accessibilityLabel("Message to check")
-            HStack {
+            if model.readingScreenshot {
+                HStack(spacing: 12) { ProgressView(); Text("Reading your screenshot on your iPhone…") }
+                    .accessibilityElement(children: .combine)
+            } else if let note = model.screenshotNote {
+                Label(note, systemImage: "text.viewfinder")
+                    .font(.footnote)
+                    .foregroundStyle(Brand.mist)
+            }
+            HStack(spacing: 10) {
                 // The system Paste button reads the clipboard only when tapped, without a prompt.
                 PasteButton(payloadType: String.self) { strings in
                     if let s = strings.first { model.message = s }
                 }
                 .buttonBorderShape(.capsule)
                 .tint(Brand.navyChip)
-                Spacer()
-                Button {
-                    editorFocused = false
-                    Task { await model.check() }
-                } label: {
-                    Label("Check it", systemImage: "checkmark.shield")
-                        .frame(minWidth: 120)
+                // The photo picker shows only what the user picks, so there's no library permission prompt.
+                PhotosPicker(selection: $pickedScreenshot, matching: .images, photoLibrary: .shared()) {
+                    Label("Choose screenshot", systemImage: "photo")
                 }
-                .buttonStyle(BrandProminentButtonStyle())
-                .disabled(!model.canCheck)
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .tint(Brand.navyChip)
+                .disabled(model.readingScreenshot || model.isChecking)
+                .onChange(of: pickedScreenshot) { _, item in
+                    guard let item else { return }
+                    editorFocused = false
+                    Task {
+                        await model.readScreenshot(item)
+                        pickedScreenshot = nil
+                    }
+                }
             }
             .controlSize(.large)
+            Button {
+                editorFocused = false
+                Task { await model.check() }
+            } label: {
+                Label("Check it", systemImage: "checkmark.shield")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(BrandProminentButtonStyle())
+            .disabled(!model.canCheck || model.readingScreenshot)
         }
     }
 

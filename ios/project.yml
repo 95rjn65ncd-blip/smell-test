@@ -68,6 +68,7 @@ targets:
       - path: SmellTest/ResultCard.swift
       - path: SmellTest/NoticeCard.swift
       - path: SmellTest/Brand.swift
+      - path: SmellTest/ScreenshotReader.swift
       - path: SmellTest/GoogleService-Info.plist
         optional: true
         buildPhase: resources
@@ -89,6 +90,7 @@ targets:
           NSExtensionAttributes:
             NSExtensionActivationRule:
               NSExtensionActivationSupportsText: true
+              NSExtensionActivationSupportsImageWithMaxCount: 1
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.cognitoagora.smelltest.share

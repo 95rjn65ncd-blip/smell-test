@@ -28,7 +28,7 @@ before anything is sent, and you see exactly what will be sent before it goes.**
    original text can never fall back to the cloud.
 2. **Escalate** only when the verdict is `not_sure`, the fixed patterns disagree with the model, the input is too
    long for on-device (instructions + input + answer must fit well under 4,096 tokens), the on-device model is
-   unavailable, or the user asks for a cloud check of the image.
+   unavailable.
 3. **Redact.** Fixed patterns first (phone, email, card/account numbers, codes, addresses). Then the on-device model
    catches names, if it's available. If the on-device model is unavailable: fixed patterns only, a louder warning,
    and the user can edit the text.
@@ -112,4 +112,14 @@ message is rejected. (The first prompt version invented a bank website in a next
   itself is unchanged.
 - Family and role words (Mum, Dad, Grandma...) are never replaced with [NAME], by either the greeting rule or the
   on-device name pass. They identify no one and are often the scam signal itself ("Hi Mum, new number").
+
+**Screenshots (Nov 17).**
+- "Choose screenshot" (photo picker, no library permission prompt) and sharing a screenshot to the share sheet.
+- The words are read on the phone with Apple's text recognition (Vision). The picture itself is never sent
+  anywhere and never given to any model. Apple's on-device model only takes images on iOS 27+, and Firebase's
+  hybrid on-device path is text-only, so reading text first is also what works on iOS 26.
+- In the app, the words go into the text box so the user can fix misread words before tapping Check it. The share
+  sheet shows the words it read above the result.
+- From there it's an ordinary text check: the second opinion still gets only Privacy Shield-redacted, approved text.
+  Pictures can't be reliably redacted, so a picture never goes to the cloud.
 

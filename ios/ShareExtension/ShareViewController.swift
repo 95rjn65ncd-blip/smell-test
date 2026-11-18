@@ -20,7 +20,15 @@ final class ShareViewController: UIViewController {
         host.didMove(toParent: self)
 
         let items = extensionContext?.inputItems as? [NSExtensionItem] ?? []
-        Task { await model.start(text: await Self.sharedText(from: items)) }
+        Task {
+            if let text = await Self.sharedText(from: items) {
+                await model.start(text: text)
+            } else if let image = await Self.sharedImage(from: items) {
+                await model.start(screenshot: image)
+            } else {
+                await model.start(text: nil)
+            }
+        }
     }
 
     /// Same config file as the app. No App Check or Remote Config here: nothing leaves the phone.
@@ -29,6 +37,21 @@ final class ShareViewController: UIViewController {
         guard Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil else { return false }
         FirebaseApp.configure()
         return true
+    }
+
+    /// The first shared image's bytes (a screenshot from Photos, say). Read on the phone only.
+    private static func sharedImage(from items: [NSExtensionItem]) async -> Data? {
+        for item in items {
+            for provider in item.attachments ?? [] where provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
+                let data: Data? = await withCheckedContinuation { done in
+                    _ = provider.loadDataRepresentation(forTypeIdentifier: UTType.image.identifier) { data, _ in
+                        done.resume(returning: data)
+                    }
+                }
+                if let data { return data }
+            }
+        }
+        return nil
     }
 
     /// The first plain text in the shared items, or the item's own text.

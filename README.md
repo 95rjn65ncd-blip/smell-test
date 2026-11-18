@@ -11,6 +11,7 @@
 - [x] Structured verdict (validated JSON), result card, where-it-ran badge, read aloud, "Already clicked?" recovery steps
 - [x] Fixed-pattern redactor with leak tests (`cd Packages/SmellTestCore && swift test`)
 - [x] Share Extension: checks shared text on the iPhone only ([ios/ShareExtension](ios/ShareExtension))
+- [x] Screenshots: words read on the iPhone with Apple's text recognition, then checked like pasted text; the picture never leaves the phone ([ScreenshotReader.swift](ios/SmellTest/ScreenshotReader.swift), [ScreenshotText.swift](Packages/SmellTestCore/Sources/SmellTestCore/ScreenshotText.swift))
 - [x] Privacy Shield: fixed patterns + on-device name pass, preview with Send/Cancel, editable, re-checked on Send
 - [x] Second opinion through `HybridModel` on approved text only, with "What left your iPhone" shown exactly
 - [x] Remote Config with validated defaults

@@ -6,6 +6,7 @@ import SmellTestCore
 @Observable
 final class ShareModel {
     enum State {
+        case reading
         case checking
         case done(CheckEngine.Outcome)
         case needsSecondOpinion(EscalationReason)
@@ -14,6 +15,8 @@ final class ShareModel {
 
     var state: State = .checking
     private(set) var message = ""
+    /// True when `message` came from reading a shared screenshot, so the sheet shows the words read.
+    private(set) var fromScreenshot = false
     var copied = false
     let firebaseReady: Bool
     let close: () -> Void
@@ -29,10 +32,11 @@ final class ShareModel {
             return
         }
         guard let text = text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else {
-            state = .failed(title: "Nothing to check", text: "Select the text of a message or email, then share it to Smell Test.")
+            state = .failed(title: "Nothing to check", text: "Select the text of a message or email, or a screenshot of it, then share it to Smell Test.")
             return
         }
         message = text
+        state = .checking
         do {
             // Built-in settings: the share sheet doesn't fetch Remote Config.
             state = .done(try await CheckEngine(settings: .defaults).checkOnDevice(text))
@@ -41,6 +45,23 @@ final class ShareModel {
         } catch {
             // Never show a made-up verdict.
             state = .failed(title: "Couldn't check", text: "Couldn't check this one. Try again.")
+        }
+    }
+
+    func start(screenshot: Data) async {
+        guard firebaseReady else {
+            state = .failed(title: "Firebase isn't set up", text: "Open Smell Test for setup steps.")
+            return
+        }
+        state = .reading
+        do {
+            let text = try await ScreenshotReader.read(screenshot)
+            fromScreenshot = true
+            await start(text: text)
+        } catch .noText {
+            state = .failed(title: "Nothing to check", text: "Couldn't find any words in that picture.")
+        } catch {
+            state = .failed(title: "Couldn't check", text: "Couldn't read that picture. Try another one.")
         }
     }
 
@@ -74,7 +95,15 @@ struct ShareView: View {
 
     @ViewBuilder
     private var content: some View {
+        if model.fromScreenshot { screenshotWords }
         switch model.state {
+        case .reading:
+            HStack(spacing: 12) {
+                ProgressView()
+                Text("Reading your screenshot on your iPhone…")
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityElement(children: .combine)
         case .checking:
             HStack(spacing: 12) {
                 ProgressView()
@@ -91,6 +120,21 @@ struct ShareView: View {
             if reason != .onDeviceUnavailable { secondOpinionHint }
         case .failed(let title, let text):
             NoticeCard(icon: "exclamationmark.triangle", title: title, text: text)
+        }
+    }
+
+    /// The words the phone read from the shared screenshot, so the user can see what was checked.
+    private var screenshotWords: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label("Words read from your screenshot on your iPhone", systemImage: "text.viewfinder")
+                .font(.footnote)
+                .foregroundStyle(Brand.mist)
+            Text(model.message)
+                .font(.callout)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(12)
+                .background(Brand.navyRaised, in: .rect(cornerRadius: 12))
+                .textSelection(.enabled)
         }
     }
 
