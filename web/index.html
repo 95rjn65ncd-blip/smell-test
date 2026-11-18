@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smell Test</title>
+  <meta name="description" content="Check a message before you act. Checked on this computer first.">
+  <link rel="icon" href="./icon.png">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <main>
+    <header class="brand">
+      <svg class="mark" viewBox="0 0 180 180" aria-hidden="true">
+        <path d="M34 96 h112 a14 14 0 0 1 14 14 v22 a14 14 0 0 1 -14 14 h-76 l-20 16 v-16 h-16 a14 14 0 0 1 -14 -14 v-22 a14 14 0 0 1 14 -14 Z" fill="none" stroke="#fff" stroke-width="10" stroke-linejoin="round"/>
+        <circle cx="64" cy="121" r="6" fill="#fff"/><circle cx="90" cy="121" r="6" fill="#fff"/><circle cx="116" cy="121" r="6" fill="#fff"/>
+        <path d="M90 82 c-16 -12 16 -20 0 -34 c-10 -8 -2 -18 8 -16" fill="none" stroke="#4FD1C5" stroke-width="11" stroke-linecap="round"/>
+      </svg>
+      <h1>Smell Test</h1>
+    </header>
+
+    <section id="model-status" class="notice" hidden></section>
+
+    <label for="message" class="prompt">Paste a text, email or link you're unsure about.</label>
+    <textarea id="message" rows="7" spellcheck="false" autocomplete="off"></textarea>
+    <button id="check" class="primary" disabled>Check it</button>
+
+    <section id="samples">
+      <p class="quiet">Try a sample</p>
+      <button class="sample" data-sample="0">Package fee text</button>
+      <button class="sample" data-sample="1">“Hi Mum, new number”</button>
+      <button class="sample" data-sample="2">Bank sign-in alert</button>
+    </section>
+
+    <section id="status" aria-live="polite"></section>
+    <section id="result"></section>
+    <section id="second"></section>
+
+    <p id="footer" class="quiet small">Checked on this computer first. <a href="/privacy">Privacy</a> · <a href="/support">Support</a></p>
+  </main>
+
+  <dialog id="shield" aria-labelledby="shield-title">
+    <form method="dialog" id="shield-form">
+      <h2 id="shield-title">Before it's sent</h2>
+      <p class="strong">Personal details are removed before anything is sent. This is exactly what will go to the cloud for a second opinion:</p>
+      <p id="shield-warning" class="warning" hidden>This computer couldn't look for names this time. Please read the text below and remove any names or other personal details yourself before sending.</p>
+      <textarea id="shield-text" rows="8" spellcheck="false"></textarea>
+      <p id="shield-counts" class="quiet small"></p>
+      <p id="shield-note" class="warning small" hidden></p>
+      <p class="quiet small">You can edit the text before sending.</p>
+      <div class="row">
+        <button value="cancel" id="shield-cancel" class="secondary">Cancel</button>
+        <button value="send" id="shield-send" class="primary">Send</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

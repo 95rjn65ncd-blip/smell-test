@@ -1,0 +1,2548 @@
+{
+  "messages" : [
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Harbor Point Bank ALERT: Your account has been locked due to unusual activity. Verify your identity within 24 hours to avoid permanent suspension: https://harborpoint-secure.top/verify",
+      "preview" : "Harbor Point Bank ALERT: Your account has been locked due to unusual activity. Verify your identity within 24 hours to avoid permanent suspension: https://harborpoint-secure.top/verify",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Harbor Point Bank ALERT: Your account has been locked due to unusual activity. Verify your identity within 24 hours to avoid permanent suspension: https://harborpoint-secure.top/verify",
+      "signals" : [
+        "credentialRequest",
+        "suspiciousLink",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "This is the Fraud Department at Larkspur Credit Union. A charge of $1,249.00 was attempted on your card. Reply with your card PIN and the code we just texted so we can cancel it.",
+      "preview" : "This is the Fraud Department at Larkspur Credit Union. A charge of $1,249.00 was attempted on your card. Reply with your card PIN and the code we just texted so we can cancel it.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "This is the Fraud Department at Larkspur Credit Union. A charge of $1,249.00 was attempted on your card. Reply with your card PIN and the code we just texted so we can cancel it.",
+      "signals" : [
+        "credentialRequest",
+        "impersonation"
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "FINAL NOTICE from the Tax Office: you owe $2,380 in back taxes. A warrant will be issued today unless you pay with gift cards. Call 555-0143 immediately.",
+      "preview" : "FINAL NOTICE from the Tax Office: you owe $2,380 in back taxes. A warrant will be issued today unless you pay with gift cards. Call 555-[CODE] immediately.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "FINAL NOTICE from the Tax Office: you owe $2,380 in back taxes. A warrant will be issued today unless you pay with gift cards. Call 555-[CODE] immediately.",
+      "signals" : [
+        "impersonation",
+        "paymentPressure",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your Social Security number has been suspended because of suspicious activity. Press 1 to speak to an officer or legal action will be taken against you.",
+      "preview" : "Your Social Security number has been suspended because of suspicious activity. Press 1 to speak to an officer or legal action will be taken against you.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your Social Security number has been suspended because of suspicious activity. Press 1 to speak to an officer or legal action will be taken against you.",
+      "signals" : [
+        "credentialRequest",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, this is Martin from Harbor Point Bank security. We noticed a new device signed in to your online banking. Was this you? If not, I can help you secure it over the phone. What's a good time to call?",
+      "preview" : "Hi, this is Martin from Harbor Point Bank security. We noticed a new device signed in to your online banking. Was this you? If not, I can help you secure it over the phone. What's a good time to call?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, this is Martin from Harbor Point Bank security. We noticed a new device signed in to your online banking. Was this you? If not, I can help you secure it over the phone. What's a good time to call?",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Customs notice: a package addressed to you contains prohibited items. To avoid arrest, pay the clearance penalty of $490 in bitcoin within 2 hours.",
+      "preview" : "Customs notice: a package addressed to you contains prohibited items. To avoid arrest, pay the clearance penalty of $490 in bitcoin within 2 hours.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Customs notice: a package addressed to you contains prohibited items. To avoid arrest, pay the clearance penalty of $490 in bitcoin within 2 hours.",
+      "signals" : [
+        "impersonation",
+        "paymentPressure",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Larkspur CU: we've updated our security policy. Please confirm your account details at the link below so your online access isn't interrupted. https://larkspur-cu-login.info/update",
+      "preview" : "Larkspur CU: we've updated our security policy. Please confirm your account details at the link below so your online access isn't interrupted. https://larkspur-cu-login.info/update",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Larkspur CU: we've updated our security policy. Please confirm your account details at the link below so your online access isn't interrupted. https://larkspur-cu-login.info/update",
+      "signals" : [
+        "credentialRequest",
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Sheriff's office: you missed jury duty and there is a bench warrant in your name. You can clear it today by paying the $750 fine with prepaid cards. Do not hang up.",
+      "preview" : "Sheriff's office: you missed jury duty and there is a bench warrant in your name. You can clear it today by paying the $750 fine with prepaid cards. Do not hang up.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Sheriff's office: you missed jury duty and there is a bench warrant in your name. You can clear it today by paying the $750 fine with prepaid cards. Do not hang up.",
+      "signals" : [
+        "impersonation",
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your benefits payment is on hold. To release it we need to re-confirm your identity. Reply YES and an agent will contact you.",
+      "preview" : "Your benefits payment is on hold. To release it we need to re-confirm your identity. Reply YES and an agent will contact you.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your benefits payment is on hold. To release it we need to re-confirm your identity. Reply YES and an agent will contact you.",
+      "signals" : [
+        "credentialRequest",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Dear customer, your debit card is deactivated. Send your full card number, expiry and security code to reactivate it now.",
+      "preview" : "Dear customer, your debit card is deactivated. Send your full card number, expiry and security code to reactivate it now.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Dear customer, your debit card is deactivated. Send your full card number, expiry and security code to reactivate it now.",
+      "signals" : [
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hello, I'm calling from the state revenue department regarding a refund you are owed. To process it I just need to verify your bank routing number.",
+      "preview" : "Hello, I'm calling from the state revenue department regarding a refund you are owed. To process it I just need to verify your bank routing number.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hello, I'm calling from the state revenue department regarding a refund you are owed. To process it I just need to verify your bank routing number.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Harbor Point Bank: we will never ask for your password. However, to protect your account, please move your balance to the safe account number we will provide when you call us back.",
+      "preview" : "Harbor Point Bank: we will never ask for your password. However, to protect your account, please move your balance to the safe account number we will provide when you call us back.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Harbor Point Bank: we will never ask for your password. However, to protect your account, please move your balance to the safe account number we will provide when you call us back.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "QuickParcel: your package could not be delivered due to an incomplete address. Pay the $1.99 redelivery fee here: https://quickparcel-redelivery.top/pay",
+      "preview" : "QuickParcel: your package could not be delivered due to an incomplete address. Pay the $1.99 redelivery fee here: https://quickparcel-redelivery.top/pay",
+      "previewCounts" : {
+
+      },
+      "redacted" : "QuickParcel: your package could not be delivered due to an incomplete address. Pay the $1.99 redelivery fee here: https://quickparcel-redelivery.top/pay",
+      "signals" : [
+        "paymentPressure",
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Bramble Post: Your parcel is on hold at our warehouse. Update your details within 12 hours or it will be returned to sender. http://bramblepost.help/track",
+      "preview" : "Bramble Post: Your parcel is on hold at our warehouse. Update your details within 12 hours or it will be returned to sender. http://bramblepost.help/track",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Bramble Post: Your parcel is on hold at our warehouse. Update your details within 12 hours or it will be returned to sender. http://bramblepost.help/track",
+      "signals" : [
+        "suspiciousLink",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+        "LINK" : 1
+      },
+      "fits" : true,
+      "message" : "We tried to deliver your parcel today but nobody was home. Please reschedule your delivery: http://parcel-reschedule.click/r?id=88213",
+      "preview" : "We tried to deliver your parcel today but nobody was home. Please reschedule your delivery: http://parcel-reschedule.click/r?[LINK]",
+      "previewCounts" : {
+        "LINK" : 1
+      },
+      "redacted" : "We tried to deliver your parcel today but nobody was home. Please reschedule your delivery: http://parcel-reschedule.click/r?[LINK]",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your shipment is held at customs. An unpaid import fee of $3.45 must be settled today. Pay now: https://swiftcourier-pay.shop/fee",
+      "preview" : "Your shipment is held at customs. An unpaid import fee of $3.45 must be settled today. Pay now: https://swiftcourier-pay.shop/fee",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your shipment is held at customs. An unpaid import fee of $3.45 must be settled today. Pay now: https://swiftcourier-pay.shop/fee",
+      "signals" : [
+        "impersonation",
+        "paymentPressure",
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+        "LINK" : 1
+      },
+      "fits" : true,
+      "message" : "Hi, it's the courier. I'm outside but can't find your door. Can you tap this link to share your location? http://drop-locate.icu/u/4471",
+      "preview" : "Hi, it's the courier. I'm outside but can't find your door. Can you tap this link to share your location? http://drop-locate.icu/u/[LINK]",
+      "previewCounts" : {
+        "LINK" : 1
+      },
+      "redacted" : "Hi, it's the courier. I'm outside but can't find your door. Can you tap this link to share your location? http://drop-locate.icu/u/[LINK]",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "QuickParcel: The address on your package is invalid. Reply 1 to receive the link to update it, then reopen this message.",
+      "preview" : "QuickParcel: The address on your package is invalid. Reply 1 to receive the link to update it, then reopen this message.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "QuickParcel: The address on your package is invalid. Reply 1 to receive the link to update it, then reopen this message.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "FINAL ATTEMPT: Your Bramble Post package will be destroyed tomorrow. Confirm your address and pay the storage fee to stop this: https://bramble-post-support.xyz",
+      "preview" : "FINAL ATTEMPT: Your Bramble Post package will be destroyed tomorrow. Confirm your address and pay the storage fee to stop this: https://bramble-post-support.xyz",
+      "previewCounts" : {
+
+      },
+      "redacted" : "FINAL ATTEMPT: Your Bramble Post package will be destroyed tomorrow. Confirm your address and pay the storage fee to stop this: https://bramble-post-support.xyz",
+      "signals" : [
+        "credentialRequest",
+        "paymentPressure",
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 2,
+        "LINK" : 1
+      },
+      "fits" : true,
+      "message" : "Your order #A-2291 has shipped! Track it here: https://trk-quickparcel.live/A2291. If you didn't place this order, call 555-0188 to cancel.",
+      "preview" : "Your order #A-[CODE] has shipped! Track it here: https://trk-quickparcel.live/[LINK]. If you didn't place this order, call 555-[CODE] to cancel.",
+      "previewCounts" : {
+        "CODE" : 2,
+        "LINK" : 1
+      },
+      "redacted" : "Your order #A-[CODE] has shipped! Track it here: https://trk-quickparcel.live/[LINK]. If you didn't place this order, call 555-[CODE] to cancel.",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Delivery notice: a package requires a signature. Choose a delivery window at https://pkg-window.buzz before 6 pm.",
+      "preview" : "Delivery notice: a package requires a signature. Choose a delivery window at https://pkg-window.buzz before 6 pm.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Delivery notice: a package requires a signature. Choose a delivery window at https://pkg-window.buzz before 6 pm.",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "State Toll Services: You have an unpaid toll balance of $6.99. Pay now to avoid a $50 late penalty: https://statetoll-pay.top",
+      "preview" : "State Toll Services: You have an unpaid toll balance of $6.99. Pay now to avoid a $50 late penalty: https://statetoll-pay.top",
+      "previewCounts" : {
+
+      },
+      "redacted" : "State Toll Services: You have an unpaid toll balance of $6.99. Pay now to avoid a $50 late penalty: https://statetoll-pay.top",
+      "signals" : [
+        "paymentPressure",
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Final notice: our records show an outstanding toll of $4.15. Your license may be suspended if not paid within 48 hours. http://e-tolls.info/settle",
+      "preview" : "Final notice: our records show an outstanding toll of $4.15. Your license may be suspended if not paid within 48 hours. http://e-tolls.info/settle",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Final notice: our records show an outstanding toll of $4.15. Your license may be suspended if not paid within 48 hours. http://e-tolls.info/settle",
+      "signals" : [
+        "suspiciousLink",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Toll road notice: a recent trip was not billed correctly. Please review the charge at https://roadway-tolls.click/review",
+      "preview" : "Toll road notice: a recent trip was not billed correctly. Please review the charge at https://roadway-tolls.click/review",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Toll road notice: a recent trip was not billed correctly. Please review the charge at https://roadway-tolls.click/review",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your vehicle was recorded on a toll road without a pass. Unpaid amount: $12.51. Pay immediately at http://tollway-pay.rest to avoid fines.",
+      "preview" : "Your vehicle was recorded on a toll road without a pass. Unpaid amount: $12.51. Pay immediately at http://tollway-pay.rest to avoid fines.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your vehicle was recorded on a toll road without a pass. Unpaid amount: $12.51. Pay immediately at http://tollway-pay.rest to avoid fines.",
+      "signals" : [
+        "paymentPressure",
+        "suspiciousLink",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hello, this is Express Lanes billing. Your account balance is low and your pass will stop working. Top up here: https://xlanes-tolls.shop",
+      "preview" : "Hello, this is Express Lanes billing. Your account balance is low and your pass will stop working. Top up here: https://xlanes-tolls.shop",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hello, this is Express Lanes billing. Your account balance is low and your pass will stop working. Top up here: https://xlanes-tolls.shop",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "URGENT: Unpaid tolls detected. Settle your $3.75 balance today: https://pay-tolls.cam/now Reply Y then reopen this text to activate the link.",
+      "preview" : "URGENT: Unpaid tolls detected. Settle your $3.75 balance today: https://pay-tolls.cam/now Reply Y then reopen this text to activate the link.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "URGENT: Unpaid tolls detected. Settle your $3.75 balance today: https://pay-tolls.cam/now Reply Y then reopen this text to activate the link.",
+      "signals" : [
+        "paymentPressure",
+        "suspiciousLink",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Turnpike Authority: your invoice is ready. Amount due $8.20. View invoice: http://turnpike-invoice.xyz/v/31",
+      "preview" : "Turnpike Authority: your invoice is ready. Amount due $8.20. View invoice: http://turnpike-invoice.xyz/v/31",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Turnpike Authority: your invoice is ready. Amount due $8.20. View invoice: http://turnpike-invoice.xyz/v/31",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Good morning my love. I can't stop thinking about you. The army still won't release my leave until the fee is paid. If you could help with $800 I promise I'll be on the next flight to you.",
+      "preview" : "Good morning my love. I can't stop thinking about you. The army still won't release my leave until the fee is paid. If you could help with $800 I promise I'll be on the next flight to you.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Good morning my love. I can't stop thinking about you. The army still won't release my leave until the fee is paid. If you could help with $800 I promise I'll be on the next flight to you.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi dear, I'm an engineer working on an oil rig offshore. My bank card was blocked and I need to pay my crew. Could you send a gift card so I can sort it out? I'll pay you back when I'm home.",
+      "preview" : "Hi dear, I'm an engineer working on an oil rig offshore. My bank card was blocked and I need to pay my crew. Could you send a gift card so I can sort it out? I'll pay you back when I'm home.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi dear, I'm an engineer working on an oil rig offshore. My bank card was blocked and I need to pay my crew. Could you send a gift card so I can sort it out? I'll pay you back when I'm home.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "I know we've only been talking for three weeks but I feel closer to you than anyone. Please don't tell your family about us yet, they wouldn't understand. Can we keep chatting here instead of the dating app?",
+      "preview" : "I know we've only been talking for three weeks but I feel closer to you than anyone. Please don't tell your family about us yet, they wouldn't understand. Can we keep chatting here instead of the dating app?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "I know we've only been talking for three weeks but I feel closer to you than anyone. Please don't tell your family about us yet, they wouldn't understand. Can we keep chatting here instead of the dating app?",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Sweetheart, customs is holding the gold jewelry I sent you. They say there's a $1,200 clearance charge. Can you wire it so they release it? I'm so sorry for the trouble.",
+      "preview" : "Sweetheart, customs is holding the gold jewelry I sent you. They say there's a $1,200 clearance charge. Can you wire it so they release it? I'm so sorry for the trouble.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Sweetheart, customs is holding the gold jewelry I sent you. They say there's a $1,200 clearance charge. Can you wire it so they release it? I'm so sorry for the trouble.",
+      "signals" : [
+        "impersonation",
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "My darling, my flight was cancelled and I'm stuck at the airport with no money. My card isn't working here. Could you send $350 by wire tonight? I miss you.",
+      "preview" : "My darling, my flight was cancelled and I'm stuck at the airport with no money. My card isn't working here. Could you send $350 by wire tonight? I miss you.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "My darling, my flight was cancelled and I'm stuck at the airport with no money. My card isn't working here. Could you send $350 by wire tonight? I miss you.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "You have such a kind face. I'm a widowed doctor working overseas and I've been so lonely. I'd love to get to know you. What's your number so we can talk on another app?",
+      "preview" : "You have such a kind face. I'm a widowed doctor working overseas and I've been so lonely. I'd love to get to know you. What's your number so we can talk on another app?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "You have such a kind face. I'm a widowed doctor working overseas and I've been so lonely. I'd love to get to know you. What's your number so we can talk on another app?",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Baby, my uncle showed me an investment that doubled my savings. I want us to build our future together. Let me show you how to open an account, it only takes $500 to start.",
+      "preview" : "Baby, my uncle showed me an investment that doubled my savings. I want us to build our future together. Let me show you how to open an account, it only takes $500 to start.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Baby, my uncle showed me an investment that doubled my savings. I want us to build our future together. Let me show you how to open an account, it only takes $500 to start.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Congratulations! You've been selected for a remote data entry job paying $450 per day. No experience needed. To start, pay a $95 training fee: https://remote-hire.top",
+      "preview" : "Congratulations! You've been selected for a remote data entry job paying $450 per day. No experience needed. To start, pay a $95 training fee: https://remote-hire.top",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Congratulations! You've been selected for a remote data entry job paying $450 per day. No experience needed. To start, pay a $95 training fee: https://remote-hire.top",
+      "signals" : [
+        "paymentPressure",
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, I'm Priya, a recruiter at Corvane Digital. We found your resume online and have a flexible part-time role, 1 hour a day, $200-$500 daily. Are you interested? Reply for details.",
+      "preview" : "Hi, I'm Priya, a recruiter at Corvane Digital. We found your resume online and have a flexible part-time role, 1 hour a day, $200-$500 daily. Are you interested? Reply for details.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, I'm Priya, a recruiter at Corvane Digital. We found your resume online and have a flexible part-time role, 1 hour a day, $200-$500 daily. Are you interested? Reply for details.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your application for the personal assistant role was approved. We'll mail you a check for $2,800. Deposit it, keep $400 as your first week's pay, and send the rest to our supplier by wire.",
+      "preview" : "Your application for the personal assistant role was approved. We'll mail you a check for $2,800. Deposit it, keep $400 as your first week's pay, and send the rest to our supplier by wire.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your application for the personal assistant role was approved. We'll mail you a check for $2,800. Deposit it, keep $400 as your first week's pay, and send the rest to our supplier by wire.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Earn money from home by liking videos and rating products. Daily commission paid in USDT. Add our mentor on chat to begin your first task.",
+      "preview" : "Earn money from home by liking videos and rating products. Daily commission paid in USDT. Add our mentor on chat to begin your first task.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Earn money from home by liking videos and rating products. Daily commission paid in USDT. Add our mentor on chat to begin your first task.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Job offer: mystery shopper wanted. You will receive $1,500 to buy gift cards at local stores and send us photos of the codes. Keep $300 for your time.",
+      "preview" : "Job offer: mystery shopper wanted. You will receive $1,500 to buy gift cards at local stores and send us photos of the codes. Keep $300 for your time.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Job offer: mystery shopper wanted. You will receive $1,500 to buy gift cards at local stores and send us photos of the codes. Keep $300 for your time.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hello, this is HR at Teller & Finch. You've been shortlisted for a remote customer service role. The interview will be by text chat. Please send a copy of your ID and your bank details for payroll setup.",
+      "preview" : "Hello, this is HR at Teller & Finch. You've been shortlisted for a remote customer service role. The interview will be by text chat. Please send a copy of your ID and your bank details for payroll setup.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hello, this is HR at Teller & Finch. You've been shortlisted for a remote customer service role. The interview will be by text chat. Please send a copy of your ID and your bank details for payroll setup.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hey! Saw you're looking for work. My company pays people to reship packages from home. Easy money, you just relabel boxes and drop them off. Want in?",
+      "preview" : "Hey! Saw you're looking for work. My company pays people to reship packages from home. Easy money, you just relabel boxes and drop them off. Want in?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hey! Saw you're looking for work. My company pays people to reship packages from home. Easy money, you just relabel boxes and drop them off. Want in?",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "To complete your onboarding for the work-from-home position, please purchase the starter equipment kit ($180) from our approved vendor. You'll be reimbursed in your first paycheck.",
+      "preview" : "To complete your onboarding for the work-from-home position, please purchase the starter equipment kit ($180) from our approved vendor. You'll be reimbursed in your first paycheck.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "To complete your onboarding for the work-from-home position, please purchase the starter equipment kit ($180) from our approved vendor. You'll be reimbursed in your first paycheck.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "WARNING: Your computer has been infected with 5 viruses. Your files will be deleted. Call PC Guard Support immediately at 555-0172. Do not turn off your computer.",
+      "preview" : "WARNING: Your computer has been infected with 5 viruses. Your files will be deleted. Call PC Guard Support immediately at 555-[CODE]. Do not turn off your computer.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "WARNING: Your computer has been infected with 5 viruses. Your files will be deleted. Call PC Guard Support immediately at 555-[CODE]. Do not turn off your computer.",
+      "signals" : [
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Security Team: we detected a hacker on your account. Download our remote support app and share the 6-digit code with our technician so we can remove the threat.",
+      "preview" : "Security Team: we detected a hacker on your account. Download our remote support app and share the 6-digit code with our technician so we can remove the threat.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Security Team: we detected a hacker on your account. Download our remote support app and share the 6-digit code with our technician so we can remove the threat.",
+      "signals" : [
+        "credentialRequest",
+        "impersonation"
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Your annual antivirus subscription of $399.99 has been renewed. If you did not authorize this charge, call our refund desk at 555-0110 within 24 hours.",
+      "preview" : "Your annual antivirus subscription of $399.99 has been renewed. If you did not authorize this charge, call our refund desk at 555-[CODE] within 24 hours.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Your annual antivirus subscription of $399.99 has been renewed. If you did not authorize this charge, call our refund desk at 555-[CODE] within 24 hours.",
+      "signals" : [
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, this is the internet provider's tech team. Your router is sending error reports and your connection will be cut off tonight. I can fix it remotely if you install the tool I send you.",
+      "preview" : "Hi, this is the internet provider's tech team. Your router is sending error reports and your connection will be cut off tonight. I can fix it remotely if you install the tool I send you.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, this is the internet provider's tech team. Your router is sending error reports and your connection will be cut off tonight. I can fix it remotely if you install the tool I send you.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your cloud storage is full and your photos will be deleted. Upgrade now to keep them: https://cloudkeep-storage.info/upgrade",
+      "preview" : "Your cloud storage is full and your photos will be deleted. Upgrade now to keep them: https://cloudkeep-storage.info/upgrade",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your cloud storage is full and your photos will be deleted. Upgrade now to keep them: https://cloudkeep-storage.info/upgrade",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "We refunded you $40 for your software subscription but accidentally sent $4,000. Please log in so our agent can see the error, then send the difference back with gift cards.",
+      "preview" : "We refunded you $40 for your software subscription but accidentally sent $4,000. Please log in so our agent can see the error, then send the difference back with gift cards.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "We refunded you $40 for your software subscription but accidentally sent $4,000. Please log in so our agent can see the error, then send the difference back with gift cards.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your email password expires today. Click here to keep the same password: https://mail-pass-renew.xyz/keep",
+      "preview" : "Your email password expires today. Click here to keep the same password: https://mail-pass-renew.xyz/keep",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your email password expires today. Click here to keep the same password: https://mail-pass-renew.xyz/keep",
+      "signals" : [
+        "credentialRequest",
+        "suspiciousLink",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "CONGRATULATIONS! Your number won $850,000 in the International Lottery. To claim, send a processing fee of $250 by wire within 3 days.",
+      "preview" : "CONGRATULATIONS! Your number won $850,000 in the International Lottery. To claim, send a processing fee of $250 by wire within 3 days.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "CONGRATULATIONS! Your number won $850,000 in the International Lottery. To claim, send a processing fee of $250 by wire within 3 days.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "You've been chosen to receive a free tablet! Just pay $4.95 shipping. Claim now before it expires today: https://free-gift-claim.top",
+      "preview" : "You've been chosen to receive a free tablet! Just pay $4.95 shipping. Claim now before it expires today: https://free-gift-claim.top",
+      "previewCounts" : {
+
+      },
+      "redacted" : "You've been chosen to receive a free tablet! Just pay $4.95 shipping. Claim now before it expires today: https://free-gift-claim.top",
+      "signals" : [
+        "paymentPressure",
+        "suspiciousLink",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Thank you for being a loyal customer of Pinecrest Market! You've been selected for a $500 reward. Complete a short survey to receive it: http://pinecrest-rewards.live",
+      "preview" : "Thank you for being a loyal customer of Pinecrest Market! You've been selected for a $500 reward. Complete a short survey to receive it: http://pinecrest-rewards.live",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Thank you for being a loyal customer of Pinecrest Market! You've been selected for a $500 reward. Complete a short survey to receive it: http://pinecrest-rewards.live",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, this is the Sweepstakes Board. You've won a new car and $25,000. A courier will deliver your prize once the taxes are prepaid. When can we call you?",
+      "preview" : "Hi, this is the Sweepstakes Board. You've won a new car and $25,000. A courier will deliver your prize once the taxes are prepaid. When can we call you?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, this is the Sweepstakes Board. You've won a new car and $25,000. A courier will deliver your prize once the taxes are prepaid. When can we call you?",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your entry in the community giveaway was drawn! Reply with your full name, address and date of birth so we can send your prize.",
+      "preview" : "Your entry in the community giveaway was drawn! Reply with your full name, address and date of birth so we can send your prize.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your entry in the community giveaway was drawn! Reply with your full name, address and date of birth so we can send your prize.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "You have unclaimed reward points worth $112.80 that expire tonight. Redeem them at https://points-redeem.shop before midnight.",
+      "preview" : "You have unclaimed reward points worth $112.80 that expire tonight. Redeem them at https://points-redeem.shop before midnight.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "You have unclaimed reward points worth $112.80 that expire tonight. Redeem them at https://points-redeem.shop before midnight.",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, sorry, wrong number! I was trying to reach my friend Lin. You seem nice though. Do you live in the area? I'm new here and run a small trading business.",
+      "preview" : "Hi, sorry, wrong number! I was trying to reach my friend Lin. You seem nice though. Do you live in the area? I'm new here and run a small trading business.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, sorry, wrong number! I was trying to reach my friend Lin. You seem nice though. Do you live in the area? I'm new here and run a small trading business.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Guaranteed 30% weekly returns with our AI crypto trading bot. Deposit as little as $250 in USDT and withdraw any time. Limited spots, act now!",
+      "preview" : "Guaranteed 30% weekly returns with our AI crypto trading bot. Deposit as little as $250 in USDT and withdraw any time. Limited spots, act now!",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Guaranteed 30% weekly returns with our AI crypto trading bot. Deposit as little as $250 in USDT and withdraw any time. Limited spots, act now!",
+      "signals" : [
+        "paymentPressure",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "My mentor gave me a signal for a new coin that's about to launch. I made $14,000 last month following him. I can add you to the group if you want, it's invite only.",
+      "preview" : "My mentor gave me a signal for a new coin that's about to launch. I made $14,000 last month following him. I can add you to the group if you want, it's invite only.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "My mentor gave me a signal for a new coin that's about to launch. I made $14,000 last month following him. I can add you to the group if you want, it's invite only.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your withdrawal of $18,420 is ready but the platform needs a 10% tax deposit before it can be released. Please send the tax in USDT to the address below.",
+      "preview" : "Your withdrawal of $18,420 is ready but the platform needs a 10% tax deposit before it can be released. Please send the tax in USDT to the address below.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your withdrawal of $18,420 is ready but the platform needs a 10% tax deposit before it can be released. Please send the tax in USDT to the address below.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Crypto wallet security alert: your wallet will be frozen in 24 hours. Enter your 12-word recovery phrase at https://wallet-verify.icu to keep access.",
+      "preview" : "Crypto wallet security alert: your wallet will be frozen in 24 hours. Enter your 12-word recovery phrase at https://wallet-verify.icu to keep access.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Crypto wallet security alert: your wallet will be frozen in 24 hours. Enter your 12-word recovery phrase at https://wallet-verify.icu to keep access.",
+      "signals" : [
+        "paymentPressure",
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hey, it's Rob from the gym! I finally tried that investment app I told you about and it's legit, I already took out profits. Here's my referral link, we both get a bonus: https://coinrise-app.buzz/r/rob",
+      "preview" : "Hey, it's Rob from the gym! I finally tried that investment app I told you about and it's legit, I already took out profits. Here's my referral link, we both get a bonus: https://coinrise-app.buzz/r/rob",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hey, it's Rob from the gym! I finally tried that investment app I told you about and it's legit, I already took out profits. Here's my referral link, we both get a bonus: https://coinrise-app.buzz/r/rob",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hello, we're a recovery firm. We can get back the crypto you lost to scammers. Our fee is only paid after recovery, but there's a small filing charge to open your case.",
+      "preview" : "Hello, we're a recovery firm. We can get back the crypto you lost to scammers. Our fee is only paid after recovery, but there's a small filing charge to open your case.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hello, we're a recovery firm. We can get back the crypto you lost to scammers. Our fee is only paid after recovery, but there's a small filing charge to open your case.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Grandma it's me. I got arrested after a car accident and I need $2,000 for bail. Please don't tell mom and dad. My lawyer will call you about how to send it.",
+      "preview" : "Grandma it's me. I got arrested after a car accident and I need $2,000 for bail. Please don't tell mom and dad. My lawyer will call you about how to send it.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Grandma it's me. I got arrested after a car accident and I need $2,000 for bail. Please don't tell mom and dad. My lawyer will call you about how to send it.",
+      "signals" : [
+        "impersonation"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi Mum, I dropped my phone in the sink so this is my new number. Can you text me back here? I need a favour.",
+      "preview" : "Hi Mum, I dropped my phone in the sink so this is my new number. Can you text me back here? I need a favour.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi Mum, I dropped my phone in the sink so this is my new number. Can you text me back here? I need a favour.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi Dad, it's me on a friend's phone. I need to pay a bill today and my banking app is locked. Can you send $960 to the account I'll text you? I'll pay you back tomorrow.",
+      "preview" : "Hi Dad, it's me on a friend's phone. I need to pay a bill today and my banking app is locked. Can you send $960 to the account I'll text you? I'll pay you back tomorrow.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi Dad, it's me on a friend's phone. I need to pay a bill today and my banking app is locked. Can you send $960 to the account I'll text you? I'll pay you back tomorrow.",
+      "signals" : [
+        "paymentPressure",
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "This is Officer Grant. Your grandson is in custody after an accident. He asked us to contact you. Bail is $3,500 and must be paid in cash today. A courier will collect it from your home.",
+      "preview" : "This is Officer Grant. Your grandson is in custody after an accident. He asked us to contact you. Bail is $3,500 and must be paid in cash today. A courier will collect it from your home.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "This is Officer Grant. Your grandson is in custody after an accident. He asked us to contact you. Bail is $3,500 and must be paid in cash today. A courier will collect it from your home.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Auntie, I'm stuck abroad, my wallet was stolen and the hotel won't let me leave until I pay. Can you buy two $200 gift cards and send me the numbers? Please hurry.",
+      "preview" : "Auntie, I'm stuck abroad, my wallet was stolen and the hotel won't let me leave until I pay. Can you buy two $200 gift cards and send me the numbers? Please hurry.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Auntie, I'm stuck abroad, my wallet was stolen and the hotel won't let me leave until I pay. Can you buy two $200 gift cards and send me the numbers? Please hurry.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Mom, I'm in the hospital, I'm okay but they need payment before treatment. Can you send money to this account? My phone is about to die, please don't call, just text.",
+      "preview" : "Mom, I'm in the hospital, I'm okay but they need payment before treatment. Can you send money to this account? My phone is about to die, please don't call, just text.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Mom, I'm in the hospital, I'm okay but they need payment before treatment. Can you send money to this account? My phone is about to die, please don't call, just text.",
+      "signals" : [
+        "impersonation"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hey, it's your nephew Sam. I'm in a bit of trouble and really embarrassed. Could you lend me $600? Please keep it between us.",
+      "preview" : "Hey, it's your nephew Sam. I'm in a bit of trouble and really embarrassed. Could you lend me $600? Please keep it between us.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hey, it's your nephew Sam. I'm in a bit of trouble and really embarrassed. Could you lend me $600? Please keep it between us.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, I'm interested in the couch you listed. I'll pay full price plus extra for shipping. I sent the payment, please confirm by entering your details at https://marketpay-confirm.top",
+      "preview" : "Hi, I'm interested in the couch you listed. I'll pay full price plus extra for shipping. I sent the payment, please confirm by entering your details at https://marketpay-confirm.top",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, I'm interested in the couch you listed. I'll pay full price plus extra for shipping. I sent the payment, please confirm by entering your details at https://marketpay-confirm.top",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Elmstead Power: your electricity will be disconnected in 30 minutes due to an unpaid balance. Pay $386 now by calling 555-0121. Accepted: gift cards or crypto.",
+      "preview" : "Elmstead Power: your electricity will be disconnected in 30 minutes due to an unpaid balance. Pay $386 now by calling 555-[CODE]. Accepted: gift cards or crypto.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Elmstead Power: your electricity will be disconnected in 30 minutes due to an unpaid balance. Pay $386 now by calling 555-[CODE]. Accepted: gift cards or crypto.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "The apartment is still available. I'm overseas for work so I can't show it, but if you send the deposit and first month's rent I'll mail you the keys.",
+      "preview" : "The apartment is still available. I'm overseas for work so I can't show it, but if you send the deposit and first month's rent I'll mail you the keys.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "The apartment is still available. I'm overseas for work so I can't show it, but if you send the deposit and first month's rent I'll mail you the keys.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi! I accidentally sent a verification code to your number. Can you please forward it to me? Sorry for the trouble!",
+      "preview" : "Hi! I accidentally sent a verification code to your number. Can you please forward it to me? Sorry for the trouble!",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi! I accidentally sent a verification code to your number. Can you please forward it to me? Sorry for the trouble!",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Invoice #77841 from Corvane Supplies: $1,940.00 for printer toner is past due. Please remit payment to our new bank account listed in the attached document.",
+      "preview" : "Invoice #[CODE] from Corvane Supplies: $1,940.00 for printer toner is past due. Please remit payment to our new bank account listed in the attached document.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Invoice #[CODE] from Corvane Supplies: $1,940.00 for printer toner is past due. Please remit payment to our new bank account listed in the attached document.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Disaster relief: families in the flood zone need your help now. Donate through our verified page and your gift will be doubled: https://flood-relief-now.click",
+      "preview" : "Disaster relief: families in the flood zone need your help now. Donate through our verified page and your gift will be doubled: https://flood-relief-now.click",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Disaster relief: families in the flood zone need your help now. Donate through our verified page and your gift will be doubled: https://flood-relief-now.click",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your streaming subscription payment failed. Update your billing information to avoid losing access: https://stream-billing.help/update",
+      "preview" : "Your streaming subscription payment failed. Update your billing information to avoid losing access: https://stream-billing.help/update",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your streaming subscription payment failed. Update your billing information to avoid losing access: https://stream-billing.help/update",
+      "signals" : [
+        "suspiciousLink"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hey, is this still for sale? I'd like to send you a deposit with a payment app, but first I need to make sure you're real. Please send me the 6-digit code I just texted you.",
+      "preview" : "Hey, is this still for sale? I'd like to send you a deposit with a payment app, but first I need to make sure you're real. Please send me the 6-digit code I just texted you.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hey, is this still for sale? I'd like to send you a deposit with a payment app, but first I need to make sure you're real. Please send me the 6-digit code I just texted you.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "You overpaid your utility bill and are owed a refund of $219.46. To receive it, reply with your bank name and account number.",
+      "preview" : "You overpaid your utility bill and are owed a refund of $219.46. To receive it, reply with your bank name and account number.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "You overpaid your utility bill and are owed a refund of $219.46. To receive it, reply with your bank name and account number.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, this is Dana from the HOA. We're updating our records. Please confirm your date of birth and the last four of your social security number by replying here.",
+      "preview" : "Hi, this is Dana from the HOA. We're updating our records. Please confirm your date of birth and the last four of your social security number by replying here.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, this is Dana from the HOA. We're updating our records. Please confirm your date of birth and the last four of your social security number by replying here.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Your Harbor Point Bank verification code is 482913. It expires in 10 minutes. We will never call or text to ask for this code. Don't share it with anyone.",
+      "preview" : "Your Harbor Point Bank verification code is [CODE]. It expires in 10 minutes. We will never call or text to ask for this code. Don't share it with anyone.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Your Harbor Point Bank verification code is [CODE]. It expires in 10 minutes. We will never call or text to ask for this code. Don't share it with anyone.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Corvane sign-in code: 771204. If you didn't try to sign in, you can ignore this message.",
+      "preview" : "Corvane sign-in code: [CODE]. If you didn't try to sign in, you can ignore this message.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Corvane sign-in code: [CODE]. If you didn't try to sign in, you can ignore this message.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Use 3390 to confirm your phone number for Pinecrest Market. Never share this code.",
+      "preview" : "Use [CODE] to confirm your phone number for Pinecrest Market. Never share this code.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Use [CODE] to confirm your phone number for Pinecrest Market. Never share this code.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Your Larkspur CU one-time passcode is 655018. Larkspur staff will never ask you for this code.",
+      "preview" : "Your Larkspur CU one-time passcode is [CODE]. Larkspur staff will never ask you for this code.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Your Larkspur CU one-time passcode is [CODE]. Larkspur staff will never ask you for this code.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Your login code for the Bramble Post app is 204771.",
+      "preview" : "Your login code for the Bramble Post app is [CODE].",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Your login code for the Bramble Post app is [CODE].",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Harbor Point Bank: Did you attempt a purchase of $64.20 at Pinecrest Market? Reply YES or NO. We will never ask for your PIN or password by text.",
+      "preview" : "Harbor Point Bank: Did you attempt a purchase of $64.20 at Pinecrest Market? Reply YES or NO. We will never ask for your PIN or password by text.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Harbor Point Bank: Did you attempt a purchase of $64.20 at Pinecrest Market? Reply YES or NO. We will never ask for your PIN or password by text.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Larkspur CU: Your account balance is below $100. Log in to the Larkspur app to view your balance. To report fraud, call the number on the back of your card.",
+      "preview" : "Larkspur CU: Your account balance is below $100. Log in to the Larkspur app to view your balance. To report fraud, call the number on the back of your card.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Larkspur CU: Your account balance is below $100. Log in to the Larkspur app to view your balance. To report fraud, call the number on the back of your card.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "ACCOUNT" : 1
+      },
+      "fits" : true,
+      "message" : "Harbor Point Bank: A direct deposit of $1,842.16 was posted to your checking account ending in 4471.",
+      "preview" : "Harbor Point Bank: A direct deposit of $1,842.16 was posted to your checking account ending in [ACCOUNT].",
+      "previewCounts" : {
+        "ACCOUNT" : 1
+      },
+      "redacted" : "Harbor Point Bank: A direct deposit of $1,842.16 was posted to your checking account ending in [ACCOUNT].",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "ACCOUNT" : 1
+      },
+      "fits" : true,
+      "message" : "Your card ending in 0932 was used for an online purchase of $212.00. If this wasn't you, call the number on the back of your card. Don't reply to this text with personal information.",
+      "preview" : "Your card ending in [ACCOUNT] was used for an online purchase of $212.00. If this wasn't you, call the number on the back of your card. Don't reply to this text with personal information.",
+      "previewCounts" : {
+        "ACCOUNT" : 1
+      },
+      "redacted" : "Your card ending in [ACCOUNT] was used for an online purchase of $212.00. If this wasn't you, call the number on the back of your card. Don't reply to this text with personal information.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Larkspur CU: Your new debit card has shipped and should arrive in 5-7 business days. Activate it in the app once it arrives.",
+      "preview" : "Larkspur CU: Your new debit card has shipped and should arrive in 5-7 business days. Activate it in the app once it arrives.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Larkspur CU: Your new debit card has shipped and should arrive in 5-7 business days. Activate it in the app once it arrives.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "QuickParcel: Your package from Pinecrest Market will arrive today between 2 pm and 6 pm. No action needed.",
+      "preview" : "QuickParcel: Your package from Pinecrest Market will arrive today between 2 pm and 6 pm. No action needed.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "QuickParcel: Your package from Pinecrest Market will arrive today between 2 pm and 6 pm. No action needed.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Bramble Post: Your parcel was delivered and left at your front door at 11:42 am.",
+      "preview" : "Bramble Post: Your parcel was delivered and left at your front door at 11:42 am.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Bramble Post: Your parcel was delivered and left at your front door at 11:42 am.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "We missed you! Your QuickParcel package is being held at the Elm Street pickup point. Bring photo ID to collect it within 7 days.",
+      "preview" : "We missed you! Your QuickParcel package is being held at the Elm Street pickup point. Bring photo ID to collect it within 7 days.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "We missed you! Your QuickParcel package is being held at the Elm Street pickup point. Bring photo ID to collect it within 7 days.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your order from Corvane Books has shipped. Estimated delivery: Thursday.",
+      "preview" : "Your order from Corvane Books has shipped. Estimated delivery: Thursday.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your order from Corvane Books has shipped. Estimated delivery: Thursday.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, it's your grocery driver Tomas. I'm about 10 minutes away with your order. Any gate code I should know?",
+      "preview" : "Hi, it's your grocery driver Tomas. I'm about 10 minutes away with your order. Any gate code I should know?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, it's your grocery driver Tomas. I'm about 10 minutes away with your order. Any gate code I should know?",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Bramble Post: Your package needs a signature. We'll try again tomorrow, or you can pick it up at the post office on Main Street.",
+      "preview" : "Bramble Post: Your package needs a signature. We'll try again tomorrow, or you can pick it up at the post office on Main Street.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Bramble Post: Your package needs a signature. We'll try again tomorrow, or you can pick it up at the post office on Main Street.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Reminder: You have a dental appointment with Dr. Okafor tomorrow at 9:30 am. Reply C to confirm or call the office to reschedule.",
+      "preview" : "Reminder: You have a dental appointment with Dr. Okafor tomorrow at 9:30 am. Reply C to confirm or call the office to reschedule.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Reminder: You have a dental appointment with Dr. Okafor tomorrow at 9:30 am. Reply C to confirm or call the office to reschedule.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Maple Grove Clinic: your flu shot appointment is confirmed for Monday at 3:15 pm. Please arrive 10 minutes early.",
+      "preview" : "Maple Grove Clinic: your flu shot appointment is confirmed for Monday at 3:15 pm. Please arrive 10 minutes early.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Maple Grove Clinic: your flu shot appointment is confirmed for Monday at 3:15 pm. Please arrive 10 minutes early.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your car is ready for pickup at Ridgeway Auto. The shop closes at 6 pm today.",
+      "preview" : "Your car is ready for pickup at Ridgeway Auto. The shop closes at 6 pm today.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your car is ready for pickup at Ridgeway Auto. The shop closes at 6 pm today.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, this is Lena from Bright Paws Grooming. Just confirming Biscuit's appointment Saturday at 10. See you then!",
+      "preview" : "Hi, this is Lena from Bright Paws Grooming. Just confirming Biscuit's appointment Saturday at 10. See you then!",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, this is Lena from Bright Paws Grooming. Just confirming Biscuit's appointment Saturday at 10. See you then!",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Maple Grove Clinic: There is a $25 fee for appointments cancelled with less than 24 hours notice. Your visit is tomorrow at 8 am.",
+      "preview" : "Maple Grove Clinic: There is a $25 fee for appointments cancelled with less than 24 hours notice. Your visit is tomorrow at 8 am.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Maple Grove Clinic: There is a $25 fee for appointments cancelled with less than 24 hours notice. Your visit is tomorrow at 8 am.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your table for 4 at Olive & Thyme is booked for Friday at 7 pm. Reply to this message if your plans change.",
+      "preview" : "Your table for 4 at Olive & Thyme is booked for Friday at 7 pm. Reply to this message if your plans change.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your table for 4 at Olive & Thyme is booked for Friday at 7 pm. Reply to this message if your plans change.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hey, are we still on for lunch Thursday? I can pick you up at noon.",
+      "preview" : "Hey, are we still on for lunch Thursday? I can pick you up at noon.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hey, are we still on for lunch Thursday? I can pick you up at noon.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Mom, can you call me when you get a sec? Nothing bad, I just have a question about Thanksgiving.",
+      "preview" : "Mom, can you call me when you get a sec? Nothing bad, I just have a question about Thanksgiving.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Mom, can you call me when you get a sec? Nothing bad, I just have a question about Thanksgiving.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Dad, my car broke down on the highway but I'm totally fine. Tow truck is on the way. I'll call you when I get home.",
+      "preview" : "Dad, my car broke down on the highway but I'm totally fine. Tow truck is on the way. I'll call you when I get home.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Dad, my car broke down on the highway but I'm totally fine. Tow truck is on the way. I'll call you when I get home.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Happy birthday!! Hope you have the best day. Dinner is on me next week.",
+      "preview" : "Happy birthday!! Hope you have the best day. Dinner is on me next week.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Happy birthday!! Hope you have the best day. Dinner is on me next week.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Can you send me $40 for the concert tickets when you get a chance? I paid for both of ours on Friday.",
+      "preview" : "Can you send me $40 for the concert tickets when you get a chance? I paid for both of ours on Friday.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Can you send me $40 for the concert tickets when you get a chance? I paid for both of ours on Friday.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Grandpa, the kids loved the drawings you sent. Here's a photo of them on the fridge.",
+      "preview" : "Grandpa, the kids loved the drawings you sent. Here's a photo of them on the fridge.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Grandpa, the kids loved the drawings you sent. Here's a photo of them on the fridge.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Urgent: the school pickup moved to 2:30 today because of the storm. Can you grab the kids if I'm stuck at work?",
+      "preview" : "Urgent: the school pickup moved to 2:30 today because of the storm. Can you grab the kids if I'm stuck at work?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Urgent: the school pickup moved to 2:30 today because of the storm. Can you grab the kids if I'm stuck at work?",
+      "signals" : [
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "I left the spare key under the blue pot. Feed the cat twice a day please, thanks so much!",
+      "preview" : "I left the spare key under the blue pot. Feed the cat twice a day please, thanks so much!",
+      "previewCounts" : {
+
+      },
+      "redacted" : "I left the spare key under the blue pot. Feed the cat twice a day please, thanks so much!",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hey, I got a new phone so my number changed. This is Jess. Save this one, the old number is gone. See you at book club!",
+      "preview" : "Hey, I got a new phone so my number changed. This is [NAME]. Save this one, the old number is gone. See you at book club!",
+      "previewCounts" : {
+        "NAME" : 1
+      },
+      "redacted" : "Hey, I got a new phone so my number changed. This is Jess. Save this one, the old number is gone. See you at book club!",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Running 15 min late, sorry! Order me a coffee if you get there first.",
+      "preview" : "Running 15 min late, sorry! Order me a coffee if you get there first.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Running 15 min late, sorry! Order me a coffee if you get there first.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Mom, I'm at the hospital with Ellie, she sprained her ankle at soccer. She's fine, we're just waiting for an x-ray. Will update you.",
+      "preview" : "Mom, I'm at the hospital with Ellie, she sprained her ankle at soccer. She's fine, we're just waiting for an x-ray. Will update you.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Mom, I'm at the hospital with Ellie, she sprained her ankle at soccer. She's fine, we're just waiting for an x-ray. Will update you.",
+      "signals" : [
+        "impersonation",
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Did you see the game last night? Unbelievable ending.",
+      "preview" : "Did you see the game last night? Unbelievable ending.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Did you see the game last night? Unbelievable ending.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi team, the 10 am meeting is moved to 11. Same room.",
+      "preview" : "Hi team, the 10 am meeting is moved to 11. Same room.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi team, the 10 am meeting is moved to 11. Same room.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Reminder: please submit your expense reports by Friday so they make this month's payroll.",
+      "preview" : "Reminder: please submit your expense reports by Friday so they make this month's payroll.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Reminder: please submit your expense reports by Friday so they make this month's payroll.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Can you cover my shift on Sunday? I'll take your Wednesday.",
+      "preview" : "Can you cover my shift on Sunday? I'll take your Wednesday.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Can you cover my shift on Sunday? I'll take your Wednesday.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "IT notice: we're updating the office Wi-Fi tonight at 8 pm. You may need to reconnect tomorrow morning. No action needed before then.",
+      "preview" : "IT notice: we're updating the office Wi-Fi tonight at 8 pm. You may need to reconnect tomorrow morning. No action needed before then.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "IT notice: we're updating the office Wi-Fi tonight at 8 pm. You may need to reconnect tomorrow morning. No action needed before then.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Thanks for the interview today, Ana. We'll be in touch by the end of next week about next steps.",
+      "preview" : "Thanks for the interview today, [NAME]. We'll be in touch by the end of next week about next steps.",
+      "previewCounts" : {
+        "NAME" : 1
+      },
+      "redacted" : "Thanks for the interview today, Ana. We'll be in touch by the end of next week about next steps.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Corvane HR: open enrollment for health benefits closes November 30. Log in to the employee portal to make your choices.",
+      "preview" : "Corvane HR: open enrollment for health benefits closes November 30. Log in to the employee portal to make your choices.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Corvane HR: open enrollment for health benefits closes November 30. Log in to the employee portal to make your choices.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Thanks for shopping at Pinecrest Market! Your receipt total was $47.83. View it in the app.",
+      "preview" : "Thanks for shopping at Pinecrest Market! Your receipt total was $47.83. View it in the app.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Thanks for shopping at Pinecrest Market! Your receipt total was $47.83. View it in the app.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Olive & Thyme: Thanks for dining with us. Your order total was $62.10 including tip.",
+      "preview" : "Olive & Thyme: Thanks for dining with us. Your order total was $62.10 including tip.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Olive & Thyme: Thanks for dining with us. Your order total was $62.10 including tip.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Your Corvane Books order #55120 is confirmed. Total: $28.47. You can cancel within 30 minutes in your account.",
+      "preview" : "Your Corvane Books order #[CODE] is confirmed. Total: $28.47. You can cancel within 30 minutes in your account.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Your Corvane Books order #[CODE] is confirmed. Total: $28.47. You can cancel within 30 minutes in your account.",
+      "signals" : [
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your Streamly subscription renewed for $9.99. Manage your plan any time in the app's account settings.",
+      "preview" : "Your Streamly subscription renewed for $9.99. Manage your plan any time in the app's account settings.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your Streamly subscription renewed for $9.99. Manage your plan any time in the app's account settings.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Ridgeway Auto: Payment of $318.40 received for your service on Oct 12. Thank you!",
+      "preview" : "Ridgeway Auto: Payment of $318.40 received for your service on Oct 12. Thank you!",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Ridgeway Auto: Payment of $318.40 received for your service on Oct 12. Thank you!",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "ACCOUNT" : 1
+      },
+      "fits" : true,
+      "message" : "Refund processed: $19.99 has been returned to your card ending in 0932. It may take 3-5 days to appear.",
+      "preview" : "Refund processed: $19.99 has been returned to your card ending in [ACCOUNT]. It may take 3-5 days to appear.",
+      "previewCounts" : {
+        "ACCOUNT" : 1
+      },
+      "redacted" : "Refund processed: $19.99 has been returned to your card ending in [ACCOUNT]. It may take 3-5 days to appear.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "City of Fairhaven: Boil water notice for the Westside area until further notice. More info at fairhaven.example.gov.",
+      "preview" : "City of Fairhaven: Boil water notice for the Westside area until further notice. More info at fairhaven.example.gov.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "City of Fairhaven: Boil water notice for the Westside area until further notice. More info at fairhaven.example.gov.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Fairhaven Library: The book you reserved, 'The Quiet Orchard', is ready for pickup. We'll hold it for 7 days.",
+      "preview" : "Fairhaven Library: The book you reserved, 'The Quiet Orchard', is ready for pickup. We'll hold it for 7 days.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Fairhaven Library: The book you reserved, 'The Quiet Orchard', is ready for pickup. We'll hold it for 7 days.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Oakridge Elementary: School is closed tomorrow due to snow. Stay safe!",
+      "preview" : "Oakridge Elementary: School is closed tomorrow due to snow. Stay safe!",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Oakridge Elementary: School is closed tomorrow due to snow. Stay safe!",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Fairhaven Pharmacy: Your prescription is ready for pickup. Your copay is $10. Pickup window closes in 10 days.",
+      "preview" : "Fairhaven Pharmacy: Your prescription is ready for pickup. Your copay is $10. Pickup window closes in 10 days.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Fairhaven Pharmacy: Your prescription is ready for pickup. Your copay is $10. Pickup window closes in 10 days.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Reminder from the Garden Club: our next meeting is Tuesday at 7 pm in the community room. Bring seeds to swap!",
+      "preview" : "Reminder from the Garden Club: our next meeting is Tuesday at 7 pm in the community room. Bring seeds to swap!",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Reminder from the Garden Club: our next meeting is Tuesday at 7 pm in the community room. Bring seeds to swap!",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Fairhaven Public Works: Trash pickup is delayed one day this week because of the holiday.",
+      "preview" : "Fairhaven Public Works: Trash pickup is delayed one day this week because of the holiday.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Fairhaven Public Works: Trash pickup is delayed one day this week because of the holiday.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Severe weather alert: a thunderstorm warning is in effect for your area until 9 pm. Stay indoors and away from windows.",
+      "preview" : "Severe weather alert: a thunderstorm warning is in effect for your area until 9 pm. Stay indoors and away from windows.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Severe weather alert: a thunderstorm warning is in effect for your area until 9 pm. Stay indoors and away from windows.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Oakridge Elementary: Picture day is next Thursday. Order forms went home in backpacks.",
+      "preview" : "Oakridge Elementary: Picture day is next Thursday. Order forms went home in backpacks.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Oakridge Elementary: Picture day is next Thursday. Order forms went home in backpacks.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Pinecrest Market: Last chance! 20% off all produce ends today. Show this text at checkout. Reply STOP to opt out.",
+      "preview" : "Pinecrest Market: Last chance! 20% off all produce ends today. Show this text at checkout. Reply STOP to opt out.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Pinecrest Market: Last chance! 20% off all produce ends today. Show this text at checkout. Reply STOP to opt out.",
+      "signals" : [
+        "urgency"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Corvane Books: New arrivals are in! Visit us this weekend for a free bookmark with any purchase.",
+      "preview" : "Corvane Books: New arrivals are in! Visit us this weekend for a free bookmark with any purchase.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Corvane Books: New arrivals are in! Visit us this weekend for a free bookmark with any purchase.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Olive & Thyme: You've earned a free dessert! Show this message on your next visit before Dec 31. Reply STOP to unsubscribe.",
+      "preview" : "Olive & Thyme: You've earned a free dessert! Show this message on your next visit before Dec 31. Reply STOP to unsubscribe.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Olive & Thyme: You've earned a free dessert! Show this message on your next visit before Dec 31. Reply STOP to unsubscribe.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Bright Paws Grooming: Book a holiday grooming session this month and get a free nail trim.",
+      "preview" : "Bright Paws Grooming: Book a holiday grooming session this month and get a free nail trim.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Bright Paws Grooming: Book a holiday grooming session this month and get a free nail trim.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Ridgeway Auto: Your car is due for an oil change. Book online or call us. Mention this text for $10 off.",
+      "preview" : "Ridgeway Auto: Your car is due for an oil change. Book online or call us. Mention this text for $10 off.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Ridgeway Auto: Your car is due for an oil change. Book online or call us. Mention this text for $10 off.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Thanks for joining the Pinecrest Market rewards program. You'll get member prices automatically at checkout.",
+      "preview" : "Thanks for joining the Pinecrest Market rewards program. You'll get member prices automatically at checkout.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Thanks for joining the Pinecrest Market rewards program. You'll get member prices automatically at checkout.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Elmstead Power: Your bill of $84.20 is due on Dec 3. Pay in the Elmstead app or set up autopay. Questions? Call the number on your bill.",
+      "preview" : "Elmstead Power: Your bill of $84.20 is due on Dec 3. Pay in the Elmstead app or set up autopay. Questions? Call the number on your bill.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Elmstead Power: Your bill of $84.20 is due on Dec 3. Pay in the Elmstead app or set up autopay. Questions? Call the number on your bill.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Fairhaven Water: Your autopay of $41.75 is scheduled for Nov 20. No action needed.",
+      "preview" : "Fairhaven Water: Your autopay of $41.75 is scheduled for Nov 20. No action needed.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Fairhaven Water: Your autopay of $41.75 is scheduled for Nov 20. No action needed.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your phone bill is ready. Amount due: $55.00 by Nov 28. A late fee applies to payments after the due date.",
+      "preview" : "Your phone bill is ready. Amount due: $55.00 by Nov 28. A late fee applies to payments after the due date.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your phone bill is ready. Amount due: $55.00 by Nov 28. A late fee applies to payments after the due date.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Fairhaven Library: You have an overdue book. A fine of $0.25 per day applies. Renew online or return it at any branch.",
+      "preview" : "Fairhaven Library: You have an overdue book. A fine of $0.25 per day applies. Renew online or return it at any branch.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Fairhaven Library: You have an overdue book. A fine of $0.25 per day applies. Renew online or return it at any branch.",
+      "signals" : [
+        "paymentPressure"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "You requested a password reset for your Corvane account. If this was you, use the reset link in the email we just sent. If not, you can ignore this.",
+      "preview" : "You requested a password reset for your Corvane account. If this was you, use the reset link in the email we just sent. If not, you can ignore this.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "You requested a password reset for your Corvane account. If this was you, use the reset link in the email we just sent. If not, you can ignore this.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Your Streamly password was changed. If you didn't make this change, open the app and choose 'Forgot password' to secure your account.",
+      "preview" : "Your Streamly password was changed. If you didn't make this change, open the app and choose 'Forgot password' to secure your account.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Your Streamly password was changed. If you didn't make this change, open the app and choose 'Forgot password' to secure your account.",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "New sign-in to your Pinecrest Market account from a Mac in Fairhaven. If this was you, no action is needed.",
+      "preview" : "New sign-in to your Pinecrest Market account from a Mac in Fairhaven. If this was you, no action is needed.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "New sign-in to your Pinecrest Market account from a Mac in Fairhaven. If this was you, no action is needed.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Larkspur CU: You added a new payee in online banking. If you didn't do this, call us at the number on the back of your card.",
+      "preview" : "Larkspur CU: You added a new payee in online banking. If you didn't do this, call us at the number on the back of your card.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Larkspur CU: You added a new payee in online banking. If you didn't do this, call us at the number on the back of your card.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Fairhaven Food Bank: Thank you for volunteering on Saturday! We packed 1,200 meals together.",
+      "preview" : "Fairhaven Food Bank: Thank you for volunteering on Saturday! We packed 1,200 meals together.",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Fairhaven Food Bank: Thank you for volunteering on Saturday! We packed 1,200 meals together.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi, this is Carlos, the plumber. I can come by Wednesday morning to look at the sink. Does 9 work?",
+      "preview" : "Hi, this is Carlos, the plumber. I can come by Wednesday morning to look at the sink. Does 9 work?",
+      "previewCounts" : {
+
+      },
+      "redacted" : "Hi, this is Carlos, the plumber. I can come by Wednesday morning to look at the sink. Does 9 work?",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "Hi Mum, it's Jess. New number x",
+      "preview" : "Hi Mum, it's [NAME]. New number x",
+      "previewCounts" : {
+        "NAME" : 1
+      },
+      "redacted" : "Hi Mum, it's Jess. New number x",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "ACCOUNT" : 1,
+        "NAME" : 1
+      },
+      "fits" : true,
+      "message" : "Dear Mr. Lopez, your card ending in 4821 was charged.",
+      "preview" : "Dear [NAME] [NAME], your card ending in [ACCOUNT] was charged.",
+      "previewCounts" : {
+        "ACCOUNT" : 1,
+        "NAME" : 2
+      },
+      "redacted" : "Dear Mr. [NAME], your card ending in [ACCOUNT] was charged.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "EMAIL" : 1,
+        "PHONE" : 2,
+        "SSN" : 1
+      },
+      "fits" : true,
+      "message" : "Call (555) 201-7788 or +44 20 7946 0958, email ana.r@example.com, SSN 123-45-6789.",
+      "preview" : "Call [PHONE] or [PHONE], email [EMAIL], SSN [SSN].",
+      "previewCounts" : {
+        "EMAIL" : 1,
+        "PHONE" : 2,
+        "SSN" : 1
+      },
+      "redacted" : "Call [PHONE] or [PHONE], email [EMAIL], SSN [SSN].",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+        "LINK" : 2
+      },
+      "fits" : true,
+      "message" : "Visit www.Example-Bank.com/login?user=ana&t=99 or https://a.b.co/track/1Z999AA10123456784#x.",
+      "preview" : "Visit www.Example-Bank.com/login?[LINK] or https://a.b.co/track/[LINK]?[LINK].",
+      "previewCounts" : {
+        "LINK" : 2
+      },
+      "redacted" : "Visit www.Example-Bank.com/login?[LINK] or https://a.b.co/track/[LINK]?[LINK].",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+        "ACCOUNT" : 1,
+        "ADDRESS" : 1,
+        "CARD" : 1,
+        "CODE" : 2
+      },
+      "fits" : true,
+      "message" : "Card 4111 1111 1111 1111, acct ...7781, 12 Oak Street, Apt 4B, code A7X9Q2, PIN 4821, $1,299.00",
+      "preview" : "Card [CARD], acct ...[ACCOUNT], [ADDRESS], code [CODE], PIN [CODE], $1,299.00",
+      "previewCounts" : {
+        "ACCOUNT" : 1,
+        "ADDRESS" : 1,
+        "CARD" : 1,
+        "CODE" : 2
+      },
+      "redacted" : "Card [CARD], acct ...[ACCOUNT], [ADDRESS], code [CODE], PIN [CODE], $1,299.00",
+      "signals" : [
+        "credentialRequest"
+      ]
+    },
+    {
+      "counts" : {
+        "CODE" : 1
+      },
+      "fits" : true,
+      "message" : "Your code is 662913. Don't share it.",
+      "preview" : "Your code is [CODE]. Don't share it.",
+      "previewCounts" : {
+        "CODE" : 1
+      },
+      "redacted" : "Your code is [CODE]. Don't share it.",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "",
+      "preview" : "",
+      "previewCounts" : {
+
+      },
+      "redacted" : "",
+      "signals" : [
+
+      ]
+    },
+    {
+      "counts" : {
+
+      },
+      "fits" : true,
+      "message" : "   ",
+      "preview" : "   ",
+      "previewCounts" : {
+
+      },
+      "redacted" : "   ",
+      "signals" : [
+
+      ]
+    }
+  ],
+  "names" : [
+    "Jess",
+    "Aunt Rosa",
+    "Mr. Lopez",
+    "Ana Reyes"
+  ],
+  "parser" : [
+    {
+      "escalation" : null,
+      "firstPassVerdict" : "scam",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "{\"verdict\":\"scam\",\"scam_type\":\"package_delivery\",\"summary\":\"Asks for a fake fee.\",\"reasons\":[{\"quote\":\"Pay the $1.99 redelivery fee\",\"why\":\"Asks for a fee (red flag 1).\"}],\"next_steps\":[\"Don't pay.\",\"Call 555-201-7788 now.\",\"Block the sender.\"]}",
+      "result" : {
+        "nextSteps" : [
+          "Don't pay.",
+          "Don't tap links, reply, or call numbers in the message.",
+          "Block the sender."
+        ],
+        "reasons" : [
+          {
+            "quote" : "Pay the $1.99 redelivery fee",
+            "why" : "Asks for a fee."
+          }
+        ],
+        "scamType" : "package_delivery",
+        "summary" : "Asks for a fake fee.",
+        "verdict" : "scam"
+      }
+    },
+    {
+      "escalation" : null,
+      "firstPassVerdict" : "likely_scam",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "```json\n{\"verdict\":\"Likely_Scam\",\"scam_type\":\"package_delivery\",\"summary\":\"A fee.\",\"reasons\":[\"bare string\",{\"quote\":\"on hold\",\"why\":\"Threatens\"}],\"next_steps\":[\"a\",\"b\",\"c\"]}\n```",
+      "result" : {
+        "nextSteps" : [
+          "a",
+          "b",
+          "c"
+        ],
+        "reasons" : [
+          {
+            "quote" : "on hold",
+            "why" : "Threatens"
+          }
+        ],
+        "scamType" : "package_delivery",
+        "summary" : "A fee.",
+        "verdict" : "likely_scam"
+      }
+    },
+    {
+      "error" : "warningWithoutEvidence",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "{\"verdict\":\"scam\",\"scam_type\":\"package_delivery\",\"summary\":\"A fee.\",\"reasons\":[{\"quote\":\"words not in the message\",\"why\":\"x\"}],\"next_steps\":[\"a\",\"b\",\"c\"]}"
+    },
+    {
+      "error" : "unknownVerdict",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "{\"verdict\":\"safe\",\"summary\":\"x\"}"
+    },
+    {
+      "error" : "wrongNumberOfSteps",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "{\"verdict\":\"no_red_flags\",\"scam_type\":\"other\",\"summary\":\"Looks fine.\",\"reasons\":[],\"next_steps\":[\"a\",\"b\"]}"
+    },
+    {
+      "escalation" : "modelNotSure",
+      "firstPassVerdict" : "not_sure",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "{\"verdict\":\"not_sure\",\"scam_type\":\"family_emergency\",\"summary\":\"Could be real.\",\"reasons\":[{\"quote\":\"on hold\",\"why\":\"odd\"}],\"next_steps\":[\"Call her back.\",\"x\",\"y\"]}",
+      "result" : {
+        "nextSteps" : [
+          "Don't tap links or share anything until you're sure.",
+          "Contact the sender using a number or app you already trust, not one in the message.",
+          "Ask someone you trust to take a look."
+        ],
+        "reasons" : [
+          {
+            "quote" : "on hold",
+            "why" : "odd"
+          }
+        ],
+        "scamType" : "family_emergency",
+        "summary" : "Could be real.",
+        "verdict" : "not_sure"
+      }
+    },
+    {
+      "escalation" : null,
+      "firstPassVerdict" : "scam",
+      "message" : "BrightBank Alert: unusual sign-in detected on your account. Verify your identity now at brightbank-secure-login.net or your account will be locked today.",
+      "output" : "{\"verdict\":\"scam\",\"scam_type\":\"bank_or_government_impersonation\",\"summary\":\"This message tries to get a security code from you.\",\"reasons\":[{\"quote\":\"Verify your identity now at brightbank-secure-login.net\",\"why\":\"Asks you to share a code.\"},{\"quote\":\"Your account will be locked today\",\"why\":\"Threatens a problem to rush you.\"}],\"next_steps\":[\"Don't send any codes to anyone.\",\"Contact BrightBank using its official app.\",\"Block the sender.\"]}",
+      "result" : {
+        "nextSteps" : [
+          "Don't tap links, reply, or call numbers in the message.",
+          "If it claims to be someone you know, contact them using a number or app you already trust.",
+          "Block the sender and delete the message."
+        ],
+        "reasons" : [
+          {
+            "quote" : "Your account will be locked today",
+            "why" : "Threatens a problem to rush you."
+          }
+        ],
+        "scamType" : "bank_or_government_impersonation",
+        "summary" : "This message shows several warning signs of a scam.",
+        "verdict" : "scam"
+      }
+    },
+    {
+      "error" : "inventedContactDetails",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "{\"verdict\":\"scam\",\"scam_type\":\"other\",\"summary\":\"Visit help-desk-cloudkey.net for help.\",\"reasons\":[{\"quote\":\"on hold\",\"why\":\"x\"}],\"next_steps\":[\"a\",\"b\",\"c\"]}"
+    },
+    {
+      "error" : "noJSON",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "no json here"
+    },
+    {
+      "error" : "noJSON",
+      "message" : "ParcelPoint: your package is on hold. Pay the $1.99 redelivery fee at parcelpoint-redelivery.top within 12 hours.",
+      "output" : "{\"verdict\": \"scam\", "
+    }
+  ]
+}

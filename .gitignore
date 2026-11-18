@@ -25,3 +25,9 @@ dist/
 # macOS
 .DS_Store
 site/.firebase/
+
+# Local copy of the web Firebase config for the dev server (Hosting serves it in production)
+web/init.local.json
+
+# Web build output (built from web/ before each deploy)
+site/public/check/
