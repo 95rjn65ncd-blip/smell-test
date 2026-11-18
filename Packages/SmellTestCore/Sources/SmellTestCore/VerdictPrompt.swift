@@ -22,6 +22,16 @@ public enum VerdictPrompt {
         return estimatedTokens(message) <= maxMessageTokens && total <= onDeviceWindow
     }
 
+    /// Summaries from the worked examples below, each with words a message needs before that summary
+    /// can fit it. A small model sometimes copies an example's summary onto an unrelated message
+    /// (Nov 17: a fake bank-login link got "tries to get a security code"); the parser catches that.
+    static let exampleOneSummary = "This looks like an ordinary reminder."
+    static let exampleTwoSummary = "This message tries to get a security code from you."
+    static let exampleSummaries: [(summary: String, fitsIfMessageHas: [String])] = [
+        (exampleOneSummary, ["remind", "due", "renew", "appointment"]),
+        (exampleTwoSummary, ["code", "pin", "passcode", "otp"]),
+    ]
+
     public static func instructions(currentPatterns: [String] = []) -> String {
         let types = ScamType.allCases.map(\.rawValue).joined(separator: ", ")
         var text = """
@@ -58,13 +68,13 @@ public enum VerdictPrompt {
         With "no_red_flags", "reasons" is an empty list.
 
         Example 1 message: Your library book is due Friday. Renew online or at any branch.
-        Example 1 answer: {"verdict":"no_red_flags","scam_type":"none","summary":"This looks like an ordinary reminder.",\
+        Example 1 answer: {"verdict":"no_red_flags","scam_type":"none","summary":"\(exampleOneSummary)",\
         "reasons":[],"next_steps":["If a later message asks for money or details, check it again.",\
         "If anything feels off, contact the sender using a number you already know.","Never share codes or passwords with anyone who contacts you."]}
 
         Example 2 message: Your account is locked. Send the 6-digit code we texted you to unlock it today.
         Example 2 answer: {"verdict":"scam","scam_type":"bank_or_government_impersonation",\
-        "summary":"This message tries to get a security code from you.",\
+        "summary":"\(exampleTwoSummary)",\
         "reasons":[{"quote":"Send the 6-digit code","why":"Asks you to share a code (red flag 2)."},\
         {"quote":"Your account is locked","why":"Threatens a problem to rush you (red flag 4)."}],\
         "next_steps":["Don't send the code to anyone.","Contact the company using the number on your card or in its official app.","Block the sender and delete the message."]}

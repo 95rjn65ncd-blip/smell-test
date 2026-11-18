@@ -124,4 +124,67 @@ struct VerdictParserTests {
         let r = try VerdictParser.parse(json, message: "Hi Mum, I dropped my phone, this is my new number")
         #expect(r.nextSteps == SafeSteps.steps(for: .notSure))
     }
+
+    /// Nov 17: a fake bank-login text came back with example 2's summary and code advice.
+    @Test func copiedExampleSummaryIsReplaced() throws {
+        let message = "BrightBank Alert: unusual sign-in detected on your account. Verify your identity now at brightbank-secure-login.net or your account will be locked today."
+        let json = """
+        {"verdict":"scam","scam_type":"bank_or_government_impersonation",
+         "summary":"This message tries to get a security code from you.",
+         "reasons":[{"quote":"Verify your identity now at brightbank-secure-login.net","why":"Pushes you to a link."},
+                    {"quote":"Your account will be locked today","why":"Threatens a problem to rush you."}],
+         "next_steps":["Don't send any codes to anyone.","Contact BrightBank using the phone number on your card or in its official app.","Block the sender and delete the message."]}
+        """
+        let r = try VerdictParser.parse(json, message: message)
+        #expect(r.summary == SafeSteps.summary(for: .scam))
+        #expect(r.nextSteps == SafeSteps.steps(for: .scam))
+        #expect(r.reasons.count == 2)
+    }
+
+    @Test func exampleSummaryIsKeptWhenItFits() throws {
+        let message = "Your account is locked. Reply with the code we sent to unlock it."
+        let json = """
+        {"verdict":"scam","scam_type":"bank_or_government_impersonation",
+         "summary":"This message tries to get a security code from you.",
+         "reasons":[{"quote":"Reply with the code we sent","why":"Asks you to share a code."}],
+         "next_steps":["Don't send the code to anyone.","Contact the company using its official app.","Block the sender."]}
+        """
+        let r = try VerdictParser.parse(json, message: message)
+        #expect(r.summary == "This message tries to get a security code from you.")
+        #expect(r.nextSteps[0] == "Don't send the code to anyone.")
+    }
+
+    @Test func codeStepIsSwappedWhenMessageHasNoCode() throws {
+        let message = "Pay the $1.99 redelivery fee at parcelpoint-redelivery.top today."
+        let json = """
+        {"verdict":"likely_scam","scam_type":"package_delivery",
+         "summary":"This message asks for a fee to deliver a package.",
+         "reasons":[{"quote":"Pay the $1.99 redelivery fee","why":"Asks for a fee."}],
+         "next_steps":["Don't pay the fee.","Never share a code or PIN.","Block the sender."]}
+        """
+        let r = try VerdictParser.parse(json, message: message)
+        #expect(r.summary == "This message asks for a fee to deliver a package.")
+        #expect(r.nextSteps[0] == "Don't pay the fee.")
+        #expect(!VerdictParser.mentionsCode(r.nextSteps[1]))
+        #expect(r.nextSteps[2] == "Block the sender.")
+    }
+
+    @Test func mentionsCodeIsWordBased() {
+        #expect(VerdictParser.mentionsCode("Send the code"))
+        #expect(VerdictParser.mentionsCode("your PIN"))
+        #expect(!VerdictParser.mentionsCode("scan the barcode"))
+        #expect(!VerdictParser.mentionsCode("pinned message"))
+    }
+
+    @Test func codeReasonIsDroppedWhenMessageHasNoCode() throws {
+        let message = "BrightBank Alert: unusual sign-in detected on your account. Verify your identity now at brightbank-secure-login.net or your account will be locked today."
+        let json = """
+        {"verdict":"scam","scam_type":"bank_or_government_impersonation","summary":"This message pushes you to a fake login page.",
+         "reasons":[{"quote":"Verify your identity now at brightbank-secure-login.net","why":"Asks you to share a code."},
+                    {"quote":"BrightBank Alert: unusual sign-in detected on your account.","why":"Threatens a problem to rush you."}],
+         "next_steps":["Don't tap the link.","Contact the bank using its official app.","Block the sender."]}
+        """
+        let r = try VerdictParser.parse(json, message: message)
+        #expect(r.reasons.map(\.why) == ["Threatens a problem to rush you."])
+    }
 }

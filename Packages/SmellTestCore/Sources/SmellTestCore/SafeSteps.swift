@@ -54,10 +54,25 @@ public enum SafeSteps {
         }
     }
 
+    /// Fixed summaries, used when the model's summary can't be trusted (it copied a prompt example).
+    public static func summary(for verdict: Verdict) -> String {
+        switch verdict {
+        case .scam: "This message shows several warning signs of a scam."
+        case .likelyScam: "This message shows a warning sign of a scam."
+        case .notSure: "Something about this message is a little unusual."
+        case .noRedFlags: "We didn't find any of the usual warning signs."
+        }
+    }
+
     static func replacingContactDetails(in modelSteps: [String], verdict: Verdict) -> [String] {
+        replacing(in: modelSteps, verdict: verdict, where: ContactDetails.contains)
+    }
+
+    /// Swaps each model step that matches `shouldReplace` for a fixed step not already shown.
+    static func replacing(in modelSteps: [String], verdict: Verdict, where shouldReplace: (String) -> Bool) -> [String] {
         var spares = steps(for: verdict).filter { !modelSteps.contains($0) }
         return modelSteps.map { step in
-            guard ContactDetails.contains(step) else { return step }
+            guard shouldReplace(step) else { return step }
             return spares.isEmpty ? steps(for: verdict)[0] : spares.removeFirst()
         }
     }

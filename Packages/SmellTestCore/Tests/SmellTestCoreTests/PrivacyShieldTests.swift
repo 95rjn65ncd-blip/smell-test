@@ -53,4 +53,12 @@ struct PrivacyShieldTests {
         #expect(PrivacyShield.parseNames("[]") == [])
         #expect(PrivacyShield.parseNames("no names") == nil)
     }
+
+    /// Nov 17: "Hi Mum" became "Hi [NAME]", hiding the scam signal from the second opinion.
+    @Test func familyWordsAreKept() {
+        let text = "Hi Mum, it's Jess. Aunt Rosa says hi. Dear John, call Dad."
+        let out = PrivacyShield.replaceNames(in: text, names: ["Mum", "Jess", "Aunt Rosa", "Dear John", "Dad"])
+        #expect(out.text == "Hi Mum, it's [NAME]. Aunt [NAME] says hi. Dear [NAME], call Dad.")
+        #expect(out.count == 3)
+    }
 }

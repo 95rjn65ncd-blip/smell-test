@@ -103,3 +103,13 @@ message is rejected. (The first prompt version invented a bank website in a next
 2. An honest "Not sure".
 3. A redacted second opinion from the cloud, with the preview and consent.
 4. A practical next step.
+
+**Copied examples and family words (Nov 17).**
+- The on-device model sometimes copies a worked example from the prompt onto an unrelated message (a fake
+  bank-login link came back as "tries to get a security code"). If the summary is an example's summary and the
+  message has none of the words that would make it fit, the app shows a fixed summary and the fixed steps for
+  that verdict. A step or reason about codes is dropped when the message never mentions a code. The prompt text
+  itself is unchanged.
+- Family and role words (Mum, Dad, Grandma...) are never replaced with [NAME], by either the greeting rule or the
+  on-device name pass. They identify no one and are often the scam signal itself ("Hi Mum, new number").
+

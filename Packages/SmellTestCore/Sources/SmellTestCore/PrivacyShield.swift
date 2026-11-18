@@ -51,14 +51,29 @@ public enum PrivacyShield {
         return ApprovedText(trimmed)
     }
 
+    /// Family and role words. They don't identify anyone, and they're often the scam signal itself
+    /// ("Hi Mum, new number"), so they're never replaced even if the name pass lists them.
+    static let relationshipWords: Set<String> = [
+        "mum", "mom", "mummy", "mommy", "mother", "ma", "mama", "dad", "daddy", "father", "pa", "papa",
+        "nan", "nana", "nanna", "gran", "granny", "grandma", "grandmother", "grandpa", "grandad", "granddad",
+        "grandfather", "aunt", "auntie", "aunty", "uncle", "son", "daughter", "sis", "sister", "bro", "brother",
+        "babe", "baby", "honey", "darling", "love", "sweetheart", "sir", "madam", "dear", "cousin",
+    ]
+
+    static func isRelationshipWord(_ word: some StringProtocol) -> Bool {
+        relationshipWords.contains(word.lowercased().trimmingCharacters(in: .punctuationCharacters))
+    }
+
     /// Replaces whole-word occurrences of each name (and each part of a multi-word name).
+    /// Family and role words are kept: "Aunt Rosa" becomes "Aunt [NAME]".
     static func replaceNames(in text: String, names: [String]) -> (text: String, count: Int) {
         var parts = Set<String>()
         for name in names {
             let cleaned = name.trimmingCharacters(in: .whitespacesAndNewlines.union(.punctuationCharacters))
             guard cleaned.count >= 2 else { continue }
-            parts.insert(cleaned)
-            for piece in cleaned.split(separator: " ") where piece.count >= 2 {
+            let pieces = cleaned.split(separator: " ")
+            if !pieces.contains(where: isRelationshipWord) { parts.insert(cleaned) }
+            for piece in pieces where piece.count >= 2 && !isRelationshipWord(piece) {
                 parts.insert(String(piece))
             }
         }
@@ -83,7 +98,8 @@ public enum PrivacyShield {
     public static func namePrompt(for text: String) -> String {
         """
         List every personal name of a real person in the message below (first names, last names, \
-        nicknames). Do not list company names, product names or places. Answer with only a JSON \
+        nicknames). Do not list company names, product names, places, or family words like Mum, Dad \
+        or Grandma. Answer with only a JSON \
         array of strings, like ["Ana", "Mr. Lee"]. If there are none, answer [].
 
         <<<MESSAGE

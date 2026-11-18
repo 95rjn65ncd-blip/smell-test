@@ -74,4 +74,12 @@ extension RedactorLeakTests {
         #expect(twice.text == once)
         #expect(twice.totalRedactions == 0, "Second pass changed: \(twice.text)")
     }
+
+    /// Nov 17: the greeting rule turned "Hi Mum" into "Hi [NAME]".
+    @Test func greetingKeepsFamilyWords() {
+        #expect(Redactor.redact("Hi Mum, it's me").text == "Hi Mum, it's me")
+        #expect(Redactor.redact("Hey Dad, new number").text == "Hey Dad, new number")
+        #expect(Redactor.redact("Hi Margaret, it's me").text == "Hi [NAME], it's me")
+        #expect(Redactor.redact("Dear Mr. Lopez, hello").text == "Dear Mr. [NAME], hello")
+    }
 }
