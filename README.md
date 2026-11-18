@@ -2,8 +2,40 @@
 
 **A privacy-first scam checker that thinks on your phone first.** By Cognito Agora.
 
-> Work in progress for #BuildHybridAI 2026. This README is filled in as features land; every claim here
-> will link to the code that backs it, and every number will come from the published benchmark script.
+Scam texts work because they rush you. Smell Test lets you paste, share or screenshot a message that feels off
+and get a plain answer in about two seconds: **Scam**, **Likely scam**, **Not sure** or **No red flags found**,
+with the exact words that raised the alarm and three safe next steps. The first check runs entirely on your
+iPhone. A larger cloud model only sees the message if you ask for a second opinion, after names, numbers and
+links are stripped and you've approved exactly what will be sent.
+
+Built for #BuildHybridAI 2026 with Firebase AI Logic (Apple Foundation Models on-device, Gemini in the cloud).
+
+## How hybrid inference is used
+
+Smell Test uses the two halves of Firebase AI Logic for different jobs, on purpose:
+
+1. **Every check starts on-device only.** The raw message is checked by the Apple on-device model through
+   `generativeModelSession(model: SystemLanguageModel)`, with no cloud fallback, so a message that may contain a
+   bank code or an address never leaves the phone automatically.
+   [CheckEngine.swift:61-63](ios/SmellTest/CheckEngine.swift#L61-L63), `respond` at
+   [:68](ios/SmellTest/CheckEngine.swift#L68). Availability is checked before every call
+   ([:56-59](ios/SmellTest/CheckEngine.swift#L56-L59)).
+2. **Escalate only on doubt.** The app offers a second opinion when the on-device model says "Not sure", when
+   fixed scam patterns disagree with it, when the message is too long for the on-device window, or when Apple
+   Intelligence is unavailable; never because of the model's own confidence score.
+   [Escalation.swift](Packages/SmellTestCore/Sources/SmellTestCore/Escalation.swift)
+3. **The Privacy Shield gates the cloud.** Fixed patterns plus an on-device name pass remove personal details;
+   the user sees and can edit exactly what will be sent, and nothing goes until they tap Send. The cloud path
+   only accepts an `ApprovedText`, which can only be built by that approval.
+   [PrivacyShield.swift](Packages/SmellTestCore/Sources/SmellTestCore/PrivacyShield.swift)
+4. **The second opinion is `HybridModel(primary: cloud, secondary: device)`**, so the larger Gemini model
+   answers when online and the on-device model still answers offline.
+   [CheckEngine.swift:126-135](ios/SmellTest/CheckEngine.swift#L126-L135)
+5. **Protected and remotely controlled.** App Check with App Attest and limited-use tokens
+   ([SmellTestApp.swift:19-21](ios/SmellTest/SmellTestApp.swift#L19-L21),
+   [CheckEngine.swift:126](ios/SmellTest/CheckEngine.swift#L126)); Remote Config holds the cloud model name, a
+   kill switch for second opinions, the escalation threshold and current scam patterns
+   ([RemoteSettings.swift](ios/SmellTest/RemoteSettings.swift)).
 
 ## Status
 
@@ -35,9 +67,10 @@
 150 made-up messages (80 scams, 70 ordinary messages, many deliberately tricky), 3 runs each, on the Apple
 on-device model. These are first-pass numbers before any second opinion. The prompt was tuned on half the messages;
 these are from the other half, which wasn't used while tuning.
-([full report](benchmark/results/2026-11-18-prompt-v2-rules-2.md), [how to rerun](benchmark/README.md). Rerun Nov 17 after the
-parser started catching copied prompt examples; the Nov 15 run is [here](benchmark/results/2026-11-15-prompt-v2-rules-2.md) and
-is within run-to-run noise of it.)
+([full report](benchmark/results/2026-11-18-prompt-v2-rules-2.md), [how to rerun](benchmark/README.md). Rerun after the
+parser started catching copied prompt examples; result files are dated in UTC, so the run on the evening of Nov 17
+Pacific is dated 2026-11-18. The Nov 15 run is [here](benchmark/results/2026-11-15-prompt-v2-rules-2.md) and is within
+run-to-run noise of it.)
 
 | On-device first pass (holdout) | |
 |---|---|
@@ -52,6 +85,11 @@ How it got here: the first prompt flagged 64% of ordinary messages as scams
 ([report](benchmark/results/2026-11-15-prompt-v2.md)). Then a fixed rule: when the model says "Scam" but the
 message has none of the usual warning signs, the app says "Not sure" and offers a second opinion instead. That
 trades false alarms for honest "Not sure" answers.
+
+**Not measured yet:** these are on-device numbers only. The benchmark doesn't yet run the cloud second opinion, so
+there are no cloud accuracy or latency numbers, and "cloud calls avoided" is only implied (the 66% of checks that
+weren't "Not sure" never offered one). The prompt version is compiled into the app (`VerdictPrompt.version`), not
+switchable from Remote Config.
 
 ## Design
 
