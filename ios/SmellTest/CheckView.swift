@@ -103,7 +103,9 @@ struct CheckView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
+                    header
                     input
+                    if model.isIdle { samples }
                     stateView
                     secondOpinionView
                     if !model.isIdle && !model.isChecking {
@@ -114,13 +116,26 @@ struct CheckView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.bordered)
+                        .tint(Brand.mist)
                         .controlSize(.large)
                     }
+                    if model.isIdle { footer }
                 }
                 .padding()
             }
             .scrollDismissesKeyboard(.interactively)
-            .navigationTitle("Smell Test")
+            .brandScreen()
+            #if DEBUG
+            // Debug builds keep the bar for the diagnostics button.
+            .toolbarBackground(Brand.navy, for: .navigationBar)
+            .toolbarBackgroundVisibility(.visible, for: .navigationBar)
+            #else
+            .toolbar(.hidden, for: .navigationBar)
+            // Navy strip behind the status bar, so scrolled text doesn't run under the clock.
+            .overlay(alignment: .top) {
+                Color.clear.frame(height: 0).background(Brand.navy.ignoresSafeArea(edges: .top))
+            }
+            #endif
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
@@ -144,6 +159,53 @@ struct CheckView: View {
         }
     }
 
+    private var header: some View {
+        HStack(spacing: 12) {
+            WispMark(showsDots: true)
+                .frame(width: 44, height: 44)
+            Text("Smell Test")
+                .font(.largeTitle.bold())
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isHeader)
+    }
+
+    /// Made-up messages (people, companies and links are invented). Tapping one only fills the box.
+    private static let sampleMessages: [(label: String, text: String)] = [
+        ("Package fee text", "ParcelPoint: your package is on hold at our depot. Pay the $1.99 redelivery fee within 12 hours at parcelpoint-redelivery.top or it will be returned."),
+        ("\u{201C}Hi Mum, new number\u{201D}", "Hi Mum, it's Jess. This is my new number, my old phone broke. Can you message me on WhatsApp here instead? Need to ask you something quickly x"),
+        ("Bank sign-in alert", "BrightBank Alert: unusual sign-in detected on your account. Verify your identity now at brightbank-secure-login.net or your account will be locked today."),
+    ]
+
+    private var samples: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Try a sample")
+                .font(.subheadline)
+                .foregroundStyle(Brand.mist)
+            ForEach(Self.sampleMessages, id: \.label) { sample in
+                Button {
+                    editorFocused = false
+                    model.message = sample.text
+                } label: {
+                    Text(sample.label)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 14)
+                        .background(Brand.navyRaised, in: .rect(cornerRadius: 12))
+                }
+                .buttonStyle(.plain)
+                .accessibilityHint("Puts a made-up example in the box")
+            }
+        }
+    }
+
+    private var footer: some View {
+        Label("Checked on your iPhone first", systemImage: "iphone")
+            .font(.footnote)
+            .foregroundStyle(Brand.mist)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
     private var input: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Paste a text, email or link you're unsure about.")
@@ -153,7 +215,7 @@ struct CheckView: View {
                 .frame(minHeight: 140, maxHeight: 260)
                 .padding(8)
                 .scrollContentBackground(.hidden)
-                .background(.fill.tertiary, in: .rect(cornerRadius: 12))
+                .background(Brand.navyRaised, in: .rect(cornerRadius: 12))
                 .accessibilityLabel("Message to check")
             HStack {
                 // The system Paste button reads the clipboard only when tapped, without a prompt.
@@ -161,6 +223,7 @@ struct CheckView: View {
                     if let s = strings.first { model.message = s }
                 }
                 .buttonBorderShape(.capsule)
+                .tint(Brand.navyChip)
                 Spacer()
                 Button {
                     editorFocused = false
@@ -169,7 +232,7 @@ struct CheckView: View {
                     Label("Check it", systemImage: "checkmark.shield")
                         .frame(minWidth: 120)
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(BrandProminentButtonStyle())
                 .disabled(!model.canCheck)
             }
             .controlSize(.large)
@@ -225,8 +288,7 @@ struct CheckView: View {
             Label("Get a second opinion", systemImage: "person.2.badge.gearshape")
                 .frame(maxWidth: .infinity)
         }
-        .buttonStyle(.borderedProminent)
-        .controlSize(.large)
+        .buttonStyle(BrandProminentButtonStyle())
         .accessibilityHint("Shows you exactly what would be sent, with personal details removed, before anything is sent")
     }
 

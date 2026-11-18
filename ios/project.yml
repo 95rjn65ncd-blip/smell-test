@@ -67,6 +67,7 @@ targets:
       - path: SmellTest/CheckEngine.swift
       - path: SmellTest/ResultCard.swift
       - path: SmellTest/NoticeCard.swift
+      - path: SmellTest/Brand.swift
       - path: SmellTest/GoogleService-Info.plist
         optional: true
         buildPhase: resources

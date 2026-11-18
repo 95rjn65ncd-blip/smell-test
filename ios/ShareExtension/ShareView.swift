@@ -63,6 +63,7 @@ struct ShareView: View {
             }
             .navigationTitle("Smell Test")
             .navigationBarTitleDisplayMode(.inline)
+            .brandScreen()
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { model.close() }

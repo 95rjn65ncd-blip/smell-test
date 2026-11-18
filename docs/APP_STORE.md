@@ -106,8 +106,8 @@ needs Eric's phone number before it saves.
 
 ## Screenshots (6.9" iPhone, 1320 × 2868, from the iPhone 17 Pro Max simulator)
 
-1. Home screen with a pasted made-up delivery-fee text
-2. "Likely scam" result with quotes and steps
+1. Home screen (navy style, Nov 17) with the made-up delivery-fee sample filled in
+2. Result card with quotes and steps
 3. "Not sure" with the second-opinion button
 4. Privacy Shield preview (personal details removed)
 5. Share sheet result

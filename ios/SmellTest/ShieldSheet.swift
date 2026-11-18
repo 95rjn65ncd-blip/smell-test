@@ -31,7 +31,7 @@ struct ShieldSheet: View {
                         .frame(minHeight: 180)
                         .padding(8)
                         .scrollContentBackground(.hidden)
-                        .background(.fill.tertiary, in: .rect(cornerRadius: 12))
+                        .background(Brand.navyRaised, in: .rect(cornerRadius: 12))
                         .accessibilityLabel("Text that will be sent. You can edit it.")
 
                     if !preview.counts.isEmpty {
@@ -61,7 +61,9 @@ struct ShieldSheet: View {
             }
             .onAppear { draft = preview.text }
             .interactiveDismissDisabled()
+            .brandScreen()
         }
+        .presentationBackground(Brand.navy)
     }
 
     private func send() {
