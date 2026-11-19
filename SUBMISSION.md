@@ -16,7 +16,7 @@ Tick an item only with evidence next to it.
 - [ ] Billing switched to paid by Nov 25: $10/$25 budget alerts, daily Gemini cap (start 2,000/day), rate limits on the public demo.
 - [ ] Early TestFlight build sent to external Beta App Review (~Nov 20).
 - [ ] TestFlight public link works, App Attest, free, available through Dec 16.
-- [ ] Hosted Chrome web app link works. (Build-or-drop decision due Nov 19, asked Nov 18.)
+- [x] Hosted Chrome web app link works: https://iossmelltest.web.app/check (deployed Nov 19; on-device check and cloud second opinion verified live with App Check).
 - [ ] YouTube video ≤ 3:00, public, English. A cut without the image check exists as backup.
 - [ ] Description: how Firebase AI Logic is used, features, value, what was built in the period, pre-existing work disclosed.
 - [ ] Platforms selected: iOS, plus Web/Chrome if it ships.

@@ -47,7 +47,7 @@ Smell Test uses the two halves of Firebase AI Logic for different jobs, on purpo
 - [x] Privacy Shield: fixed patterns + on-device name pass, preview with Send/Cancel, editable, re-checked on Send
 - [x] Second opinion through `HybridModel` on approved text only, with "What left your iPhone" shown exactly
 - [x] Remote Config with validated defaults
-- [ ] Chrome web version
+- [x] Chrome web version: https://iossmelltest.web.app/check (desktop Chrome with its built-in model; same rules as the iPhone, tested against Swift with 169 parity tests)
 - [x] Benchmark: 150 made-up messages, rerunnable on a Mac ([benchmark/](benchmark))
 
 ## Where Firebase AI Logic is called
