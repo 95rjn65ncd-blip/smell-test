@@ -58,8 +58,9 @@ Every scam example, person and company below is made up.
 **Support URL:** https://iossmelltest.web.app/support
 (Firebase Hosting, project iossmelltest, live Nov 17; source in `site/`.)
 
-**Version:** the store shows 1.0, but the build is 0.1.0. Before App Store submission, set
-`MARKETING_VERSION` to 1.0 (TestFlight doesn't care).
+**Version:** 1.0. Build 5 (Nov 19) is version 1.0 and is attached to iOS 1.0, which is what makes the
+app icon show in App Store Connect. Builds 1–4 were 0.1.0 and exported as TestFlight-internal-only, so
+they can't be attached to an App Store version. Nothing is submitted for review.
 
 ## App Review Information
 
