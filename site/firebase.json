@@ -4,8 +4,13 @@
     "cleanUrls": true,
     "headers": [
       { "source": "**", "headers": [
-        { "key": "Content-Security-Policy", "value": "default-src 'none'; style-src 'unsafe-inline'" },
         { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ] },
+      { "regex": "^/(|404\\.html|(privacy|support)(\\.html)?)$", "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'none'; style-src 'unsafe-inline'" }
+      ] },
+      { "source": "/check{,/**}", "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" }
       ] }
     ]
   }
