@@ -67,18 +67,18 @@ Smell Test uses the two halves of Firebase AI Logic for different jobs, on purpo
 150 made-up messages (80 scams, 70 ordinary messages, many deliberately tricky), 3 runs each, on the Apple
 on-device model. These are first-pass numbers before any second opinion. The prompt was tuned on half the messages;
 these are from the other half, which wasn't used while tuning.
-([full report](benchmark/results/2026-11-18-prompt-v2-rules-2.md), [how to rerun](benchmark/README.md). Rerun after the
-parser started catching copied prompt examples; result files are dated in UTC, so the run on the evening of Nov 17
-Pacific is dated 2026-11-18. The Nov 15 run is [here](benchmark/results/2026-11-15-prompt-v2-rules-2.md) and is within
-run-to-run noise of it.)
+([full report](benchmark/results/2026-11-20-prompt-v2-rules-3.md), [how to rerun](benchmark/README.md). Rules 3 added the
+"family member with a new number" and "move the chat elsewhere" warning signs; they match no ordinary message in the
+set, so the false-alarm change from the [rules-2 run](benchmark/results/2026-11-18-prompt-v2-rules-2.md) (4% to 6%) is
+run-to-run noise from the model.)
 
 | On-device first pass (holdout) | |
 |---|---|
-| Scams missed (said "No red flags", no second opinion offered) | 2% |
-| Scams flagged as a scam | 82% |
-| Ordinary messages wrongly flagged as a scam | 4% |
-| "Not sure" (second opinion offered) | 34% of checks |
-| Time to answer, median | 2.4 s |
+| Scams missed (said "No red flags", no second opinion offered) | 1% |
+| Scams flagged as a scam | 83% |
+| Ordinary messages wrongly flagged as a scam | 6% |
+| "Not sure" (second opinion offered) | 30% of checks |
+| Time to answer, median | 2.5 s |
 
 How it got here: the first prompt flagged 64% of ordinary messages as scams
 ([report](benchmark/results/2026-11-15-prompt-v1.md)). A clearer prompt brought that to 22%
@@ -87,7 +87,7 @@ message has none of the usual warning signs, the app says "Not sure" and offers 
 trades false alarms for honest "Not sure" answers.
 
 **Not measured yet:** these are on-device numbers only. The benchmark doesn't yet run the cloud second opinion, so
-there are no cloud accuracy or latency numbers, and "cloud calls avoided" is only implied (the 66% of checks that
+there are no cloud accuracy or latency numbers, and "cloud calls avoided" is only implied (the 70% of checks that
 weren't "Not sure" never offered one). The prompt version is compiled into the app (`VerdictPrompt.version`), not
 switchable from Remote Config.
 
