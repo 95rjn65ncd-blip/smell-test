@@ -82,7 +82,7 @@ trading them for honest "Not sure" answers.
 
 - The raw message never leaves the device unless the user reads and approves the redacted version.
 - One set of rules on two platforms, enforced by tests.
-- Submitted to the App Store.
+- Built and sent to App Review (version 1.0, build 5).
 
 ## What we learned
 
