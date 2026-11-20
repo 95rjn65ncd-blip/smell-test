@@ -1,8 +1,11 @@
-# App Store Connect listing (DRAFT — needs Eric's OK before anything is entered)
+# App Store Connect listing
 
-**Parked until after Nov 30 (Eric, Nov 16):** App Information, the Version page, App Review Information and
-Age rating below are for a public App Store launch, not the contest. Only these are in scope now:
-privacy policy and support pages, TestFlight Test Information, App Privacy, and screenshots.
+**Entered Nov 20 (Eric asked for every field to be filled in):** App Information (subtitle, Utilities /
+Productivity, content rights: none), age rating (all None/No, 4+), price Free, and on the iOS 1.0 page:
+promotional text, description, keywords, support URL, copyright, five 6.3" screenshots (the 6.9" set
+resized to 1206 × 2622), "Sign-in required" unticked, review contact and notes.
+Still Eric's: the review contact phone number (the 1.0 page won't save without it) and which countries
+get the app (Availability). Mainland China would also need its Security Assessment and AI content filings.
 
 Every scam example, person and company below is made up.
 
