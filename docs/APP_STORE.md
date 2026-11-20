@@ -7,7 +7,7 @@ resized to 1206 × 2622), "Sign-in required" unticked, review contact and notes.
 Availability (Eric, Nov 20): every country except mainland China (174 available), which would need its own
 Security Assessment and AI content filings.
 Review contact phone entered by Eric; the 1.0 page saved and verified after reload (Nov 20). "Add for Review" is
-enabled. Nothing is submitted for review.
+enabled. **Submitted for App Review by Eric on Nov 20.**
 
 Every scam example, person and company below is made up.
 
@@ -65,7 +65,7 @@ Every scam example, person and company below is made up.
 
 **Version:** 1.0. Build 5 (Nov 19) is version 1.0 and is attached to iOS 1.0, which is what makes the
 app icon show in App Store Connect. Builds 1–4 were 0.1.0 and exported as TestFlight-internal-only, so
-they can't be attached to an App Store version. Nothing is submitted for review.
+they can't be attached to an App Store version. Submitted for review Nov 20 (by Eric).
 
 ## App Review Information
 
