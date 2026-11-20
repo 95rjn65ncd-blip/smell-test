@@ -13,6 +13,9 @@ Tick an item only with evidence next to it.
       Nov 18 scan of all history: 0 `GoogleService-Info.plist`, 0 API-key / private-key / token patterns, 0 debug
       tokens. Open: Eric's contact email is in site/ and docs/APP_STORE.md (approved for the pages; confirm for a
       public repo), and every commit's author email is Eric's Apple private-relay address. Rescan right before going public.
+      Nov 20 rescan, all 46 commits: 0 `GoogleService-Info.plist`, 0 key/token patterns, 0 debug tokens, no files
+      over 1 MB, no local paths; phone numbers are all fictional 555 numbers; other emails are made-up test data.
+      Only real contact: smokylive@icloud.com (Eric to confirm it's OK public).
 - [ ] Billing switched to paid by Nov 25: $10/$25 budget alerts, daily Gemini cap (start 2,000/day), rate limits on the public demo.
 - [ ] Early TestFlight build sent to external Beta App Review (~Nov 20).
 - [ ] TestFlight public link works, App Attest, free, available through Dec 16.
@@ -21,4 +24,6 @@ Tick an item only with evidence next to it.
 - [ ] Description: how Firebase AI Logic is used, features, value, what was built in the period, pre-existing work disclosed.
 - [ ] Platforms selected: iOS, plus Web/Chrome if it ships.
 - [x] Screenshots. Evidence: docs/screenshots/1-5, 1320×2868, Release build, made-up messages (Nov 17).
+- [ ] App Store release is NOT required for the contest. App Review sent 1.0 back (2.1 information request);
+      parked until after the contest. Fix the blockers in docs/COMPLIANCE.md before resubmitting.
 - [ ] Submitted by Nov 29. Every link checked from a logged-out browser.
