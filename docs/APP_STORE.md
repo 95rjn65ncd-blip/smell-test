@@ -6,7 +6,8 @@ promotional text, description, keywords, support URL, copyright, five 6.3" scree
 resized to 1206 × 2622), "Sign-in required" unticked, review contact and notes.
 Availability (Eric, Nov 20): every country except mainland China (174 available), which would need its own
 Security Assessment and AI content filings.
-Still Eric's: the review contact phone number (the 1.0 page won't save without it).
+Review contact phone entered by Eric; the 1.0 page saved and verified after reload (Nov 20). "Add for Review" is
+enabled. Nothing is submitted for review.
 
 Every scam example, person and company below is made up.
 
