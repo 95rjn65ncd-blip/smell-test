@@ -1006,7 +1006,8 @@
       },
       "redacted" : "Hi Mum, I dropped my phone in the sink so this is my new number. Can you text me back here? I need a favour.",
       "signals" : [
-
+        "channelSwitch",
+        "impersonation"
       ]
     },
     {
@@ -2298,7 +2299,7 @@
       },
       "redacted" : "Hi Mum, it's Jess. New number x",
       "signals" : [
-
+        "impersonation"
       ]
     },
     {

@@ -56,7 +56,10 @@ const SIGNAL_PATTERNS = {
   suspiciousLink: [String.raw`https?://[^\s/]+\.(top|xyz|help|info|click|live|shop|icu|buzz|cam|rest)\b`,
     String.raw`https?://[^\s/]*-(verify|secure|login|pay|support|redelivery|tolls?)[^\s/]*`],
   impersonation: [String.raw`\b(fraud (dept|department)|security team|irs|tax office|customs|police|sheriff)\b`,
-    String.raw`\b(grandma|grandpa|mom|dad)\b.{0,40}\b(jail|hospital|accident|arrested)\b`],
+    String.raw`\b(grandma|grandpa|mom|dad)\b.{0,40}\b(jail|hospital|accident|arrested)\b`,
+    String.raw`\b(mum|mom|mam|dad|mother|father|nan|nana|grandma|grandpa)\b.{0,80}\bnew (number|phone)\b`],
+  channelSwitch: [String.raw`\b(message|text|contact|reach|add|chat with) me\b.{0,40}\b(whatsapp|telegram|signal|instead)\b`,
+    String.raw`\b(text|message) me (back )?(here|on this number)\b`],
 };
 
 export function scan(text) {
@@ -71,7 +74,7 @@ export const DEFAULT_SETTINGS = { cloudModel: 'gemini-3.5-flash-lite', secondOpi
 
 // ---------- Escalation ----------
 
-export const ESCALATION_RULES_VERSION = '2';
+export const ESCALATION_RULES_VERSION = '3';
 
 /** Explanations for the web. Same meaning as the iPhone's, with "this computer" for "your iPhone". */
 export const ESCALATION_TEXT = {

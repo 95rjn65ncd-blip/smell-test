@@ -61,4 +61,11 @@ struct EscalationTests {
         #expect(EscalationPolicy.firstPass(result(.notSure), message: benign).escalation == .modelNotSure)
         #expect(EscalationPolicy.firstPass(result(.noRedFlags), message: benign).escalation == nil)
     }
+
+    @Test func newNumberScamEscalatesWhenModelSeesNoRedFlags() {
+        let hiMum = "Hi Mum, it's Jess. This is my new number, my old phone broke. Can you message me on WhatsApp here instead? Need to ask you something quickly x"
+        #expect(RedFlagScanner.scan(hiMum) == [.impersonation, .channelSwitch])
+        #expect(EscalationPolicy.afterOnDevice(result(.noRedFlags), message: hiMum) == .patternsDisagree)
+        #expect(RedFlagScanner.scan("Can you text me when you're home? Love, Mum").isEmpty)
+    }
 }

@@ -60,7 +60,7 @@ async function loadSettings(app) {
     if (enabled === 'false') state.settings.secondOpinionEnabled = false;
     if (enabled === 'true') state.settings.secondOpinionEnabled = true;
     const min = parseInt(getValue(rc, 'min_warning_signs').asString(), 10);
-    if (min >= 1 && min <= 5) state.settings.minWarningSigns = min;
+    if (min >= 1 && min <= 6) state.settings.minWarningSigns = min;
     const patterns = getValue(rc, 'current_scam_patterns').asString();
     if (patterns) state.settings.currentPatterns = patterns.split('\n').map((p) => p.trim()).filter((p) => p && p.length <= 120).slice(0, 5);
   } catch { /* keep defaults */ }

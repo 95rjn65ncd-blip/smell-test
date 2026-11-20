@@ -4,7 +4,7 @@ import Foundation
 /// used to spot when the model's answer disagrees with obvious warning signs.
 public enum RedFlagScanner {
     public enum Signal: String, CaseIterable, Sendable {
-        case urgency, paymentPressure, credentialRequest, suspiciousLink, impersonation
+        case urgency, paymentPressure, credentialRequest, suspiciousLink, impersonation, channelSwitch
     }
 
     static let patterns: [Signal: [String]] = [
@@ -17,7 +17,10 @@ public enum RedFlagScanner {
         .suspiciousLink: [#"https?://[^\s/]+\.(top|xyz|help|info|click|live|shop|icu|buzz|cam|rest)\b"#,
                           #"https?://[^\s/]*-(verify|secure|login|pay|support|redelivery|tolls?)[^\s/]*"#],
         .impersonation: [#"\b(fraud (dept|department)|security team|irs|tax office|customs|police|sheriff)\b"#,
-                         #"\b(grandma|grandpa|mom|dad)\b.{0,40}\b(jail|hospital|accident|arrested)\b"#],
+                         #"\b(grandma|grandpa|mom|dad)\b.{0,40}\b(jail|hospital|accident|arrested)\b"#,
+                         #"\b(mum|mom|mam|dad|mother|father|nan|nana|grandma|grandpa)\b.{0,80}\bnew (number|phone)\b"#],
+        .channelSwitch: [#"\b(message|text|contact|reach|add|chat with) me\b.{0,40}\b(whatsapp|telegram|signal|instead)\b"#,
+                         #"\b(text|message) me (back )?(here|on this number)\b"#],
     ]
 
     public static func scan(_ text: String) -> Set<Signal> {
@@ -62,7 +65,8 @@ public enum EscalationReason: String, Equatable, Sendable {
 public enum EscalationPolicy {
     /// Bump when the rules change; benchmark results are tagged with it.
     /// 1: escalate on "not sure" or strong signs vs "no red flags". 2: adds warning-without-signs → "Not sure".
-    public static let rulesVersion = "2"
+    /// 3: adds the "family member with a new number" and "move the chat elsewhere" warning signs.
+    public static let rulesVersion = "3"
 
     /// Before any model runs: can the on-device first pass even happen?
     public static func preCheck(message: String, onDeviceAvailable: Bool,
