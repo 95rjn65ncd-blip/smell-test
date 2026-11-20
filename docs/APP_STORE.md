@@ -4,8 +4,9 @@
 Productivity, content rights: none), age rating (all None/No, 4+), price Free, and on the iOS 1.0 page:
 promotional text, description, keywords, support URL, copyright, five 6.3" screenshots (the 6.9" set
 resized to 1206 × 2622), "Sign-in required" unticked, review contact and notes.
-Still Eric's: the review contact phone number (the 1.0 page won't save without it) and which countries
-get the app (Availability). Mainland China would also need its Security Assessment and AI content filings.
+Availability (Eric, Nov 20): every country except mainland China (174 available), which would need its own
+Security Assessment and AI content filings.
+Still Eric's: the review contact phone number (the 1.0 page won't save without it).
 
 Every scam example, person and company below is made up.
 
