@@ -231,10 +231,15 @@ struct CheckView: View {
     }
 
     private var footer: some View {
-        Label("Checked on your iPhone first", systemImage: "iphone")
-            .font(.footnote)
-            .foregroundStyle(Brand.mist)
-            .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading, spacing: 12) {
+            Label("Checked on your iPhone first", systemImage: "iphone")
+                .foregroundStyle(Brand.mist)
+            Link("Privacy policy", destination: URL(string: "https://iossmelltest.web.app/privacy")!)
+                .underline()
+                .foregroundStyle(Brand.mist)
+        }
+        .font(.footnote)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private var input: some View {

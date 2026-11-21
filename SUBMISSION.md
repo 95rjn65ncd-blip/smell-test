@@ -3,7 +3,8 @@
 Deadline: **Nov 30, 2026, 2:00 pm PT**. Target: **Nov 29**. Nothing is pushed after the deadline.
 Tick an item only with evidence next to it.
 
-- [ ] Eric registered on the hackathon's Devpost page and accepted the rules (Eric does this himself).
+- [x] Eric registered on the hackathon's Devpost page and accepted the rules (Eric does this himself).
+      Evidence: Eric registered on Nov 16, 2026 (relayed from Eric's review chat, Nov 21).
 - [x] Repo public on GitHub, Apache-2.0 LICENSE showing in the About box.
       Evidence: https://github.com/95rjn65ncd-blip/smell-test created public Nov 20 (Eric's OK), Actions disabled;
       logged-out page and raw README return 200; GitHub API reports license apache-2.0.

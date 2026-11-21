@@ -28,6 +28,7 @@ numbers, emails, account numbers and links, shows you exactly what will be sent,
 leaves until you tap Send, and afterwards the iPhone app shows exactly what left.
 
 - iPhone app (iOS 26, Apple Intelligence): paste, share sheet, screenshots read on-device, read-aloud.
+  Available to judges through TestFlight: TESTFLIGHT_LINK (add when Beta App Review approves it).
 - Chrome version: https://iossmelltest.web.app/check, same rules as the iPhone, tested against the Swift code.
 
 ## How we built it: Firebase AI Logic hybrid inference
@@ -82,7 +83,6 @@ trading them for honest "Not sure" answers.
 
 - The raw message never leaves the device unless the user reads and approves the redacted version.
 - One set of rules on two platforms, enforced by tests.
-- Built and sent to App Review (version 1.0, build 5).
 
 ## What we learned
 

@@ -14,7 +14,7 @@ struct ShieldSheet: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Personal details are removed before anything is sent. This is exactly what will go to the cloud for a second opinion:")
+                    Text("Personal details are removed before anything is sent. This is exactly what will go to Google's Gemini model for a second opinion:")
                         .font(.headline)
 
                     if !preview.namesChecked {
