@@ -20,7 +20,9 @@ Tick an item only with evidence next to it.
       over 1 MB, no local paths; phone numbers are all fictional 555 numbers; other emails are made-up test data.
       Only real contact: smokylive@icloud.com (Eric to confirm it's OK public).
 - [ ] Billing switched to paid by Nov 25: $10/$25 budget alerts, daily Gemini cap (start 2,000/day), rate limits on the public demo.
-- [ ] Early TestFlight build sent to external Beta App Review (~Nov 20).
+- [x] Early TestFlight build sent to external Beta App Review (~Nov 20).
+  Evidence: Nov 21, build 1.0 (6) added to external group "Hackathon Judges" and submitted with Eric's OK;
+  status "Waiting for Review". Sign-in not required; review contact and notes saved on Test Information.
 - [ ] TestFlight public link works, App Attest, free, available through Dec 16.
 - [x] Hosted Chrome web app link works: https://iossmelltest.web.app/check (deployed Nov 19; on-device check and cloud second opinion verified live with App Check).
 - [ ] YouTube video ≤ 3:00, public, English. A cut without the image check exists as backup.
