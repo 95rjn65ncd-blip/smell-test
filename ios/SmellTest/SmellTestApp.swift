@@ -27,10 +27,12 @@ struct SmellTestApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if isFirebaseConfigured {
-                CheckView()
-            } else {
-                MissingConfigView()
+            LaunchContainer {
+                if isFirebaseConfigured {
+                    CheckView()
+                } else {
+                    MissingConfigView()
+                }
             }
         }
     }
