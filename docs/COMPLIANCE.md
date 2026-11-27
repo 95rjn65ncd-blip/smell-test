@@ -8,8 +8,8 @@ version. B4 and B5 are fixed in build 6. B6 is fixed (repo public Nov 20).
 ## Left for December (Eric decides)
 
 - App Store resubmission: a screen recording from Eric's own iPhone, plus the Notes from `docs/REVIEW_REPLY.md`.
-- B1, the 18+ age rating question. Eric said no 18+, so another fix is needed (e.g. the iPhone second opinion
-  off for the App Store build, or a different cloud model whose terms allow it).
+- B1, decided Nov 26: Eric chose **18+** to keep the second opinion. Privacy policy says "for adults 18 and over"
+  (site/public/privacy.html, not yet deployed). App Store age rating override to 18+ still to set in App Store Connect.
 - B2, paid billing (being set up for the contest by Nov 25).
 - B3, regions Gemini doesn't cover.
 - Whether Smell Test ships on its own or folds into OPS Detector.
