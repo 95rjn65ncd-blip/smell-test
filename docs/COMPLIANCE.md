@@ -9,7 +9,7 @@ version. B4 and B5 are fixed in build 6. B6 is fixed (repo public Nov 20).
 
 - App Store resubmission: a screen recording from Eric's own iPhone, plus the Notes from `docs/REVIEW_REPLY.md`.
 - B1, decided Nov 26: Eric chose **18+** to keep the second opinion. Privacy policy says "for adults 18 and over"
-  (live at iossmelltest.web.app/privacy since Nov 26). App Store age rating overridden to 18+ in App Store Connect on Nov 26 (shows 18+ in 173 regions, 19+ in Korea, A18 in Brazil; 17+ on older iOS).
+  (live at iossmelltest.web.app/privacy since Nov 26). App Store age rating overridden to 18+ in App Store Connect on Nov 26 (shows 18+ in 173 regions, 19+ in Korea, Brazil uses its own rating badge; 17+ on older iOS).
 - B2, paid billing (being set up for the contest by Nov 25).
 - B3, regions Gemini doesn't cover.
 - Whether Smell Test ships on its own or folds into OPS Detector.
