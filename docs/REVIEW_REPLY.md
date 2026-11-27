@@ -22,7 +22,8 @@ What's needed:
 > 1. Screen recording: attached. It starts at launch on a physical iPhone running the latest iOS and shows the full
 > flow. The app has no accounts, no sign-in, no user-generated content shared with others, and no paid content.
 >
-> 2. Purpose and audience: Smell Test helps anyone, especially people who are less confident online, spot scam
+> 2. Purpose and audience: Smell Test is for adults 18 and over (rated 18+, because Google's Gemini API terms
+> require adult users). It helps adults, especially people who are less confident online, spot scam
 > texts, emails and links before they tap, reply or pay. The user pastes or shares a message and gets a plain
 > answer (Scam, Likely scam, Not sure, or No red flags found), the exact words that raised concern, and simple
 > next steps. Its value is privacy: the first check runs entirely on the iPhone with Apple Intelligence, so private
@@ -40,8 +41,9 @@ What's needed:
 > removed. Firebase App Check (App Attest) to protect that request, and Firebase Remote Config for settings (the
 > cloud model name, an on/off switch and current scam patterns). No analytics, ads, payments or account services.
 >
-> 5. Regions: the app works the same in every region where it's offered. The on-device check depends on Apple
-> Intelligence being available for the device, region and language; the interface is in English.
+> 5. Regions: the app works the same in every region where it's offered. It is not offered in regions where the
+> Gemini API isn't available (China mainland, Hong Kong, Macau, Russia, Belarus, Myanmar). The on-device check
+> depends on Apple Intelligence being available for the device, region and language; the interface is in English.
 >
 > 6. Regulated industry or third-party material: not applicable. The app gives general guidance only, not financial
 > or legal advice. All sample messages, people and companies are made up.
